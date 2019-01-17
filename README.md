@@ -1,14 +1,14 @@
 # 目录
 
-## Android
+# Android
 
-## 算法
+# 算法
 
-## Java
+# Java
 
-## 推荐神器
+# 推荐神器
 
-### 1、LICEcap(录屏工具)
+## 1、LICEcap(录屏工具)
 
 下载地址：https://licecap.en.softonic.com/，下载并安装。
 
@@ -20,7 +20,7 @@
 效果图：
 ![20190117_LICEcap](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/20190117_LICEcap.gif)
 
-### Pointofix(桌面画板工具)
+## 2、Pointofix(桌面画板工具)
 
 下载地址：http://www.pointofix.de/download.php，下载并安装。
 
@@ -30,11 +30,11 @@
 
 语言翻译包的使用可以看上面图片最后的说明，解压并找到`pointofix_translation_zh-cn.ini`，重命名为`pointofix_translation.ini`，然后放到pointofix的安装目录下即可，重启就变成中文了。
 
-## 推荐网站
+# 推荐网站
 
-## 推荐好书
+# 推荐好书
 
-### Android
+## 1、Android
 
 - 第一行代码 - 郭霖
 - Android开发艺术探索 - 任玉刚
@@ -42,7 +42,7 @@
 - Android开发进阶从小工到专家 - 何红辉
 - 巧用Gradle构建Android应用 - Ken Kousen
 
-### Java
+## 2、Java
 
 - java 2 实用教程(第四版)
 - java编程思想
