@@ -35,7 +35,7 @@ div#app:empty:before {
 }
 
 .progress {
-	background-color: var(--theme-color, #42b983);
+	background-color: var(--theme-color, #03ab5f);
 	height: 2px;
 	left: 0;
 	position: fixed;
@@ -48,7 +48,7 @@ div#app:empty:before {
 
 .search .search-keyword,
 .search a:hover {
-	color: var(--theme-color, #42b983)
+	color: var(--theme-color, #03ab5f)
 }
 
 .search .search-keyword {
@@ -134,11 +134,11 @@ li input[type=checkbox] {
 
 .app-nav a.active,
 .app-nav a:hover {
-	color: var(--theme-color, #42b983)
+	color: var(--theme-color, #03ab5f)
 }
 
 .app-nav a.active {
-	border-bottom: 2px solid var(--theme-color, #42b983)
+	border-bottom: 2px solid var(--theme-color, #03ab5f)
 }
 
 .app-nav li {
@@ -204,7 +204,7 @@ li input[type=checkbox] {
 
 .github-corner svg {
 	color: #fff;
-	fill: var(--theme-color, #42b983);
+	fill: var(--theme-color, #03ab5f);
 	height: 80px;
 	width: 80px
 }
@@ -335,7 +335,7 @@ main.hidden {
 }
 
 .sidebar-toggle span {
-	background-color: var(--theme-color, #42b983);
+	background-color: var(--theme-color, #03ab5f);
 	display: block;
 	margin-bottom: 4px;
 	width: 16px;
@@ -626,10 +626,10 @@ section.cover ul {
 }
 
 section.cover .cover-main>p:last-child a {
-	border: 1px solid var(--theme-color, #42b983);
+	border: 1px solid var(--theme-color, #03ab5f);
 	border-radius: 2rem;
 	box-sizing: border-box;
-	color: var(--theme-color, #42b983);
+	color: var(--theme-color, #03ab5f);
 	display: inline-block;
 	font-size: 1.05rem;
 	letter-spacing: .1rem;
@@ -640,7 +640,7 @@ section.cover .cover-main>p:last-child a {
 }
 
 section.cover .cover-main>p:last-child a:last-child {
-	background-color: var(--theme-color, #42b983);
+	background-color: var(--theme-color, #03ab5f);
 	color: #fff
 }
 
@@ -654,12 +654,12 @@ section.cover .cover-main>p:last-child a:hover {
 }
 
 section.cover blockquote>p>a {
-	border-bottom: 2px solid var(--theme-color, #42b983);
+	border-bottom: 2px solid var(--theme-color, #03ab5f);
 	transition: color .3s
 }
 
 section.cover blockquote>p>a:hover {
-	color: var(--theme-color, #42b983)
+	color: var(--theme-color, #03ab5f)
 }
 
 .sidebar,
@@ -695,7 +695,7 @@ body {
 
 .sidebar ul li.active>a {
 	border-right: 2px solid;
-	color: var(--theme-color, #42b983);
+	color: var(--theme-color, #03ab5f);
 	font-weight: 600
 }
 
@@ -715,7 +715,7 @@ body {
 }
 
 .markdown-section a {
-	color: var(--theme-color, #42b983);
+	color: var(--theme-color, #03ab5f);
 	font-weight: 600
 }
 
@@ -765,7 +765,7 @@ body {
 }
 
 .markdown-section blockquote {
-	border-left: 4px solid var(--theme-color, #42b983);
+	border-left: 4px solid var(--theme-color, #03ab5f);
 	color: #858585;
 	margin: 2em 0;
 	padding-left: 20px
@@ -839,7 +839,7 @@ body {
 }
 
 .token.string {
-	color: var(--theme-color, #42b983)
+	color: var(--theme-color, #03ab5f)
 }
 
 .token.selector {
@@ -861,7 +861,7 @@ body {
 .token.control,
 .token.directive,
 .token.unit {
-	color: var(--theme-color, #42b983)
+	color: var(--theme-color, #03ab5f)
 }
 
 .token.function,
