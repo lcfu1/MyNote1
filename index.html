@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="css/vue.css">
+	</head>
+
+	<body>
+		<div id="app">
+		</div>
+		<script>
+			window.$docsify = {
+				name: 'MyNote',
+//				basePath: '/ac/',
+				homepage: '/README.md',
+				search: {
+					noData: {
+						'/': '没有结果!'
+					},
+					paths: ['/'],
+					placeholder: {
+						'/': '搜索'
+					}
+				},
+
+			}
+		</script>
+		<script src="js/docsify.min.js">
+		</script>
+		<script src="js/search.js">
+		</script>
+	</body>
+
+</html>
