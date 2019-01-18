@@ -10,7 +10,7 @@
 
 ## 1、LICEcap(录屏工具)
 
-下载地址：https://licecap.en.softonic.com/，下载并安装。
+下载地址：https://licecap.en.softonic.com/ ，下载并安装。
 
 使用步骤：
 
@@ -22,7 +22,7 @@
 
 ## 2、Pointofix(桌面画板工具)
 
-下载地址：http://www.pointofix.de/download.php，下载并安装。
+下载地址：http://www.pointofix.de/download.php ，下载并安装。
 
 不过安装好的Pointofix不是中文的，需要在官网下载语言翻译包。
 
