@@ -1,12 +1,36 @@
 # 目录
 
-# Android
+# 一、Android
 
-# 算法
+# 二、Java
 
-# Java
+# 三、JavaWeb
 
-# 推荐神器
+# 四、算法
+
+# 五、Git
+
+# 六、前端
+
+# 七、Oracle
+
+# 八、Gradle
+
+# 九、网络通信
+
+# 十、物联网安全
+
+# 十一、大数据
+
+# 十二、Kotlin
+
+# 十三、Python
+
+# 十四、UML
+
+# 十五、C
+
+# 十六、推荐神器
 
 ## 1、LICEcap(录屏工具)
 
@@ -30,9 +54,9 @@
 
 语言翻译包的使用可以看上面图片最后的说明，解压并找到`pointofix_translation_zh-cn.ini`，重命名为`pointofix_translation.ini`，然后放到pointofix的安装目录下即可，重启就变成中文了。
 
-# 推荐网站
+# 十七、推荐网站
 
-# 推荐好书
+# 十八、推荐好书
 
 ## 1、Android
 
@@ -46,3 +70,5 @@
 
 - java 2 实用教程(第四版)
 - java编程思想
+
+# 十九、推荐资源
