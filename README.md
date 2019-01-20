@@ -145,6 +145,40 @@
 
 
 
+## 16.4 HEditor（HTML/CSS/JavaScript在线编辑器）
+
+效果图：
+
+![20190120_HEditor](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190120_HEditor.PNG)
+
+
+
+### 16.5 Kotlin在线编辑器
+
+描述：JetBrains官方的kotlin在线编辑器。
+
+使用：<https://try.kotlinlang.org/>
+
+效果图：
+
+![20190120_Kotlin](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190120_Kotlin.PNG)
+
+
+
+### 16.6 shields
+
+描述：Concise, consistent, and legible badges in SVG and raster format。
+
+项目的github地址：<https://github.com/badges/shields>
+
+使用：<https://shields.io/>
+
+效果：
+
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/lcfu1/MyNote)  [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/lcfu1/MyNote/blob/master/LICENSE)
+
+
+
 # 十七、推荐网站
 
 
