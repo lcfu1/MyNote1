@@ -8,6 +8,43 @@
 
 
 
+### 1.1.1 TextView 文本框
+
+
+
+**常用属性**：
+
+android:id：指控件id，在其他地方可通过id找到这个控件，注意书写格式@+id/自己取个id名称。
+
+android:layout_width：指控件的宽度。
+
+android:android_height：指控件的高度。
+
+android:text：指文本内容，可使用 **@string/名** 引用string资源。
+
+android:textSize：指文本大小，单位推荐用sp。
+
+android:textColor：指字体颜色。
+
+android:background：指控件背景，可以是颜色也可以是图片。
+
+
+
+**简单使用**：
+
+```
+<TextView
+        android:id="@+id/textView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"/>
+```
+
+
+
+!> @+id就是在R.java文件里新增一个id名称，如果之前已经存在相同的id名称，那么会覆盖之前的名称。而@id则是直接引用R.java文件的存在的id资源，如果不存在，会编译报错。 
+
+
+
 ## 1.2 布局
 
 
@@ -153,7 +190,7 @@
 
 
 
-### 16.5 Kotlin在线编辑器
+## 16.5 Kotlin在线编辑器
 
 描述：JetBrains官方的kotlin在线编辑器。
 
@@ -165,7 +202,7 @@
 
 
 
-### 16.6 shields
+## 16.6 shields
 
 描述：Concise, consistent, and legible badges in SVG and raster format。
 
