@@ -2496,27 +2496,503 @@ $ git push master:one
 ## 5.2 简单使用
 
 
-# 六、前端
+# 六、SVG
+
+## 6.1 SVG定义
+
+可缩放矢量图形是基于可扩展标记语言(标准通用标记语言的子集)，用于描述二维矢量图形的一种图形格式。它由万维网联盟制定，是一个开放标准。
+
+## 6.2 什么是SVG？
+
+- SVG 指可伸缩矢量图形 (Scalable Vector Graphics)
+
+- SVG 用来定义用于网络的基于矢量的图形
+
+- SVG 使用 XML 格式定义图形
+
+- SVG 图像在放大或改变尺寸的情况下其图形质量不会有所损失
+
+- SVG 是万维网联盟的标准
+
+- SVG 与诸如 DOM 和 XSL 之类的 W3C 标准是一个整体
+
+## 6.3 优势
+
+- SVG 可被非常多的工具读取和修改(比如记事本)
+
+- SVG 与 JPEG 和 GIF 图像比起来，尺寸更小，且可压缩性更强。
+
+- SVG 是可伸缩的
+
+- SVG 图像可在任何的分辨率下被高质量地打印
+
+- SVG 可在图像质量不下降的情况下被放大
+
+- SVG 图像中的文本是可选的，同时也是可搜索的(很适合制作地图)
+
+- SVG 可以与 Java 技术一起运行
+
+- SVG 是开放的标准
+
+- SVG 文件是纯粹的 XML
+
+**矢量图像格式和位图图像格式的区别：**
+
+矢量图像用点和线来描述物体，所以文件会比较小，同时也能提供高清晰的画面，适合于直接打印或输出。而位图图像的存储单位是图像上每一点的像素值，因此一般的图像文件都很大，会占用大量的网络带宽。SVG是一种矢量图形格式，GIF、JPEG是光栅文件格式。
+
+**1.任意放缩：**
+
+用户可以任意缩放图像显示，而不会破坏图像的清晰度、细节等。
+
+**2.文本独立：**
+
+SVG图像中的文字独立于图像，文字保留可编辑和可搜寻的状态。也不会再有字体的限制，用户系统即使没有安装某一字体，也会看到和他们制作时完全相同的画面。
+
+**3.较小文件：**
+
+总体来讲，SVG文件比那些GIF和JPEG格式的文件要小很多，因而下载也很快。
+
+**4.超强显示效果：**
+
+SVG图像在屏幕上总是边缘清晰，它的清晰度适合任何屏幕分辨率和打印分辨率。
+
+**5.超级颜色控制：**
+
+SVG图像提供一个1 600万种颜色的调色板，支持ICC颜色描述文件标准、RGB、线X填充、渐变和蒙版。
+
+**6.交互X和智能化**
+
+SVG面临的主要问题一个是如何和已经占有重要市场份额的矢量图形格式Flash竞争的问题，另一个问题就是SVG的本地运行环境下的厂家支持程度。
+
+## 6.4 SVG编辑器
+
+- 线上编辑器（下载地址：https://c.runoob.com/more/svgeditor）
+
+- 本地编辑器inkscape（下载地址：http://baoku.360.cn/soft/show/appid/102866）
+
+## 6.5 简单的画圆例子代码解析
+
+```
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="black"
+  stroke-width="2" fill="red" />
+</svg>
+```
+
+**SVG 代码解析：**
+
+- standalone属性：该属性规定此 SVG 文件是否是"独立的"，或含有对外部文件的引用。standalone="no"意味着 SVG 文档会引用一个外部文件 - 在这里，是 DTD 文件。
+
+- http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd：外部的 SVG DTD，该 DTD 位于 W3C，含有所有允许的 SVG 元素。
+
+- `<svg>`元素：包括开启标签`<svg>`和关闭标签`</svg>`，这是根元素。
+
+- width和height属性：设置此SVG文档的宽度和高度，这里设置为100px。
+
+- xmlns 属性：定义 SVG 命名空间。
+
+- version 属性：定义所使用的 SVG 版本。
+
+- `<circle> `：创建一个圆。
+
+- cx和cy属性：定义圆中心的 x 和 y 坐标，如果忽略，那么圆点会被设置为 (0, 0)。
+
+- r 属性：定义圆的半径。
+
+- stroke和 stroke-width属性：控制如何显示形状的轮廓，这里把圆的轮廓设置为 2px 宽，黑边框。
+
+- fill属性：设置形状内的颜色，这里设置为红色。
+
+## 6.6 SVG的使用
+
+**SVG在HTML页面的使用**
+
+- SVG 文件可通过以下标签嵌入 HTML 文档：`<embed>`、`<object>`或者`<iframe>`。
+
+- SVG的代码可以直接嵌入到HTML页面中，或链接到SVG文件。
+
+- 谷歌Chrome，火狐，Internet Explorer9，和Safari都支持。
+
+**`<embed>`标签：**
+
+- 优势：所有主要浏览器都支持，并允许使用脚本
+
+- 缺点：不推荐在HTML4和XHTML中使用（但在HTML5允许）
+
+- 使用：`<embed src="circle.svg" type="image/svg+xml" />`
+
+**`<object>`标签：**
+
+- 优势：所有主要浏览器都支持，并支持HTML4，XHTML和HTML5标准
+
+- 缺点：不允许使用脚本。
+
+- 使用：`<object data="circle.svg" type="image/svg+xml"></object>`
+
+**`<iframe>`标签：**
+
+- 优势：所有主要浏览器都支持，并允许使用脚本
+
+- 缺点：不推荐在HTML4和XHTML中使用（但在HTML5允许）
+
+- 使用：`<iframe src="circle.svg"></iframe>`
+
+**直接在HTML嵌入SVG代码：**
+
+- *代码如下：*
+
+```
+<!DOCTYPE html>
+<html>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="black"  stroke-width="2" fill="red" />
+</svg>
+</body>
+</html>
+```
+
+**链接到SVG文件：**
+
+- 通过`<a>`标签可以链接到一个SVG文件。
+
+- 使用：`<a href="circle.svg">SVG</a>`
+
+## 6.7 矩形
+
+用 `<rect> `标签来创建矩形 。
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <rect x="50" y="50" rx="20" ry="20" width="100" height="100" style="fill:blue;stroke:pink;stroke-width:2;fill-opacity:0.1;stroke-opacity:0.9" />
+</svg>
+```
+
+**解析：** 
+
+- x、y属性分别定义矩形的左侧和顶端位置。
+- rx、ry属性可使矩形产生圆角。 
+- width、height 属性分别定义矩形的高度和宽度。
+- style 属性用来定义 CSS 属性。
+- CSS 的 fill 属性定义矩形的填充颜色（rgb 值、颜色名或者十六进制值）。
+- CSS 的 stroke-width 属性定义矩形边框的宽度。
+- CSS 的 stroke 属性定义矩形边框的颜色。
+- CSS 的 fill-opacity 属性定义填充颜色透明度（合法的范围是：0 - 1）。
+- CSS 的 stroke-opacity 属性定义笔触颜色的透明度（合法的范围是：0 - 1）。
+
+## 6.8 圆形
+
+用`<circle>` 标签来创建一个圆。
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <circle cx="100" cy="100" r="40" stroke="black" stroke-width="2" fill="red" />
+</svg>
+```
+
+**解析：**
+
+- cx和cy属性分别定义圆点的x和y坐标。 
+- r属性定义圆的半径。
+- 其它属性跟上面矩形style属性中的CSS属性一样。
+
+## 6.9 椭圆
+
+用`<ellipse>` 标签来创建一个椭圆 。
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <ellipse cx="100" cy="100" rx="50" ry="20" style="fill:yellow;stroke:purple;stroke-width:2" />
+</svg>
+```
+
+**解析：**
+
+- cx、cy属性分别定义椭圆中心的x坐标、y坐标。
+- rx、ry属性分别定义水平半径、垂直半径。
+
+## 6.10 线
+
+用`<line>` 标签来创建一条直线。
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <line x1="0" y1="0" x2="200" y2="0" style="stroke:rgb(255,0,0);stroke-width:2" />
+</svg>
+```
+
+**解析：**
+
+- x1、y1属性分别在 x、y轴定义线条的开始。
+- x2、y2属性分别在 x、y轴定义线条的结束。
+
+## 6.11 折线
+
+用`<polyline>` 标签来创建任何只有直线的形状。
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <polyline points="0,0 100,0 100,100" style="fill:none;stroke:black;stroke-width:2" />
+</svg>
+```
+
+**解析：**
+
+- points属性定义多边形每个角的 x 和 y 坐标。
+
+## 6.12 多边形
+
+用`<polygon>` 标签来创建含有不少于三个边的图形。 
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <polygon points="100,10 40,180 190,60 10,60 160,180" style="fill:red;stroke:black;stroke-width:2;fill-rule:evenodd;" />
+</svg>
+```
+
+**解析：**
+
+- points属性定义多边形每个角的 x 和 y 坐标。
+- fill-rule属性：
+  - nonzero：按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点情况。从0开始计数，路径从左向右穿过射线则计数加1，从右向左穿过射线则计数减1。得出计数结果后，如果结果是0，则认为点在图形外部，否则认为在内部。 
+  - evenodd：按该规则，要判断一个点是否在图形内，从该点作任意方向的一条射线，然后检测射线与图形路径的交点的数量。如果结果是奇数则认为点在内部，是偶数则认为点在外部。 
+
+## 6.13 路径
+
+用`<path>` 标签来定义一个路径。 
+
+可用以下命令控制路径数据，允许大小写字母，大写表示应用绝对位置，小写表示相对定位。
+
+| 命令                                | 描述                           |
+| :---------------------------------- | :----------------------------- |
+| M = moveto                          | 移动到                         |
+| L = lineto                          | 连线到                         |
+| H = horizontal lineto               | 水平连线到                     |
+| V = vertical lineto                 | 垂直连线到                     |
+| C = curveto                         | 使用曲线连接到                 |
+| S = smooth curveto                  | 使用平滑曲线连接到             |
+| Q = quadratic Bézier curve          | 使用二次贝塞尔曲线连接到       |
+| T = smooth quadratic Bézier curveto | 使用平滑的二次贝塞尔曲线连接到 |
+| A = elliptical Arc                  | 使用椭圆曲线连接到             |
+| Z = closepath                       | 将路径封闭到                   |
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <path d="M0 0 L100 0 L100 100 Z" />
+</svg>
+```
+
+**解析：**
+
+- d属性用来定义路径。
+- M0 0：从位置(0,0)开始。
+- L100 0：直线到位置(100,0)。
+- L100 100：直线到位置(100,100)。
+- Z：关闭路径。
+
+## 6.14 文本
+
+`<text>`元素用于定义文本。 
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <text x="0" y="0" fill="red" transform="rotate(30 -20,20)">SVG</text>
+</svg>
+```
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+  </defs>
+  <text x="10" y="100" style="fill:red;">
+    <textPath xlink:href="#path1">SVG</textPath>
+  </text>
+</svg>
+```
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <text x="10" y="20" style="fill:red;">
+	First
+    <tspan x="10" y="40">Second</tspan> 
+  </text>
+</svg>
+```
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+xmlns:xlink="http://www.w3.org/1999/xlink">
+  <a xlink:href="https://lcfu1.github.io/Note/" target="_blank">
+    <text x="10" y="10" fill="red">lcfu1</text>
+  </a>
+</svg>
+```
+
+**解析：**
+
+- transform属性实现旋转 。
+- 每个`<tspan>`元素可以包含不同的格式和位置。 
+- 放在 `<a>`元素中作为链接文本。
+
+## 6.15 stroke属性
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <g fill="none">
+    <path stroke="red" stroke-linecap="butt" stroke-width="4" d="M10 10 L100 10" />
+    <path stroke="black" stroke-linecap="round" stroke-width="5" d="M10 20 L100 20" />
+    <path stroke="blue" stroke-linecap="square" stroke-width="6" stroke-dasharray="20,10,5,5,5,10" d="M10 30 L200 30" />
+  </g>
+</svg>
+```
+
+**解析：**
+
+- stroke：定义一条线，文本或元素轮廓颜色。
+- stroke-width：定义厚度。
+- stroke-linecap：定义不同类型的开放路径的终结。
+  - butt：默认。向线条的每个末端添加平直的边缘。 
+  - round：向线条的每个末端添加圆形线帽。 
+  - square： 向线条的每个末端添加正方形线帽。 
+- stroke-dasharray：创建虚线。
+
+## 6.16 过虑器
+
+**SVG支持的过虑器表：**
+
+| 过虑器              | 作用                                   |
+| ------------------- | -------------------------------------- |
+| feBlend             | 使用不同的混合模式把两个对象合成在一起 |
+| feColorMatrix       | 用于彩色滤光片转换                     |
+| feComponentTransfer | 执行数据的 component-wise 重映射       |
+| feComposite         |                                        |
+| feConvolveMatrix    |                                        |
+| feDiffuseLighting   |                                        |
+| feDisplacementMap   |                                        |
+| feFlood             |                                        |
+| feGaussianBlur      | 执行高斯模糊图像                       |
+| feImage             |                                        |
+| feMerge             | 建立在彼此顶部图像层                   |
+| feMorphology        |                                        |
+| feOffset            | 过滤阴影，  创建阴影效果               |
+| feSpecularLighting  |                                        |
+| feTile              |                                        |
+| feTurbulence        |                                        |
+| feDistantLight      | 定义一个光源，用于照明过滤             |
+| fePointLight        | 用于照明过滤                           |
+| feSpotLight         | 用于照明过滤                           |
+
+过滤器在`<defs>`元素中定义，使用`<filter>`标记来定义SVG滤镜，`<filter>`标记使用id属性来定义向图形应用哪个滤镜，在图形中使用`<filter>`属性，通过将 url 值设置为用户分配给过滤器的 id 属性的值。
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <filter id="f1" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10" />
+    </filter>
+  </defs>
+  <rect width="100" height="100" stroke="black" stroke-width="2" fill="red" filter="url(#f1)" />
+</svg>
+```
+
+**解析：**
+
+- `<feGaussianBlur>`元素：定义模糊效果。
+- `in="SourceGraphic"`：定义了由整个图像创建效果。
+- `stdDeviation`属性：定义模糊量。
+- `<rect>`元素的滤镜属性用来把元素链接到"f1"滤镜。
+
+## 6.17 渐变
+
+是一种从一种颜色到另一种颜色的平滑过渡，有两种基本形式：线性（Linear）和径向渐变（Radial）。
+
+**1、线性渐变`<linearGradient>`**
+
+线性渐变可以定义为水平，垂直或角渐变：
+
+- 当y1和y2相等，而x1和x2不同时，可创建水平渐变
+- 当x1和x2相等，而y1和y2不同时，可创建垂直渐变
+- 当x1和x2不同，且y1和y2不同时，可创建角形渐变
+
+**水平线性渐变例子：**
+
+ ```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="50" fill="url(#grad1)" />
+</svg>
+ ```
+
+**解析：**
+
+- `<linearGradient>`标签的id属性可为渐变定义一个唯一的名称。
+- `<linearGradient>`标签的x1，x2，y1，y2属性定义渐变开始和结束位置。
+- 渐变的颜色范围可由两种或多种颜色组成。每种颜色通过一个`<stop>`标签来规定。offset属性用来定义渐变的开始和结束位置。
+- 填充属性把 circle 元素链接到此渐变。
+
+**垂直线性渐变例子：**
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="50" fill="url(#grad1)" />
+</svg>
+```
+
+**2、放射性渐变`<radialGradient>`**
+
+```
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <defs>
+    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:0" />
+      <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="50" fill="url(#grad1)" />
+</svg>
+```
+
+**解析：**
+
+- `<radialGradient>`标签的 id 属性可为渐变定义一个唯一的名称。
+- cx，cy和r属性定义的最外层圆和fx和fy定义的最内层圆。
+- `circle`标签中的cx，cy和r属性定义圆的起始坐标和半径。
+- 渐变颜色范围可以由两个或两个以上的颜色组成。每种颜色用一个`<stop>`标签指定。offset属性用来定义渐变色开始和结束。
+- 填充属性把circle元素链接到此渐变。
+
+# 七、HTML
 
 
 
-# 七、Oracle
+# 八、CSS
 
 
 
-# 八、Gradle
+# 九、JavaScript
 
 
 
-# 九、网络通信
+# 十、Oracle
 
 
 
-# 十、物联网安全
-
-
-
-# 十一、大数据
+# 十一、Gradle
 
 
 
@@ -2608,7 +3084,14 @@ $ git push master:one
 
 
 
-# 十七、推荐网站
+# 十七、网络通信
+
+
+# 十八、物联网安全
+
+# 十九、大数据
+
+# 二十、推荐网站
 
 - Android Developers: https://developer.android.google.cn/index.html
 - Codelabs: http://clmirror.storage.googleapis.com/index.html
@@ -2624,9 +3107,9 @@ $ git push master:one
 - stackoverflow: https://stackoverflow.com/
 - 简书：https://www.jianshu.com/
 
-# 十八、推荐好书
+# 二十一、推荐好书
 
-## 18.1 Android
+## 21.1 Android
 
 - 第一行代码 - 郭霖
 - Android开发艺术探索 - 任玉刚
@@ -2634,16 +3117,12 @@ $ git push master:one
 - Android开发进阶从小工到专家 - 何红辉
 - 巧用Gradle构建Android应用 - Ken Kousen
 
-## 18.2 Java
+## 21.2 Java
 
 - java 2 实用教程(第四版)
 - java编程思想
 
-# 十九、推荐资源
+# 二十二、推荐资源
 
 - https://github.com/open-android/Android
 - https://www.jianshu.com/p/9618c038135f
-
-```
-
-```
