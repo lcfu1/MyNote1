@@ -1382,6 +1382,7 @@ $ git config –global alias.st status
 ```
 $ mkdir gitReporitory
 mkdir命令是用来创建文件夹的，这里创建一个叫gitreporitory的文件夹。
+```
 
 ```
 $ cd gitReporitory
@@ -1438,6 +1439,7 @@ $ git diff
 可以查看哪里有改动过。
 ```
 
+```
 $ git rm hello.txt
 删除版本库中的hello.txt文件。
 ```
@@ -1817,3 +1819,7 @@ $ git push master:one
 
 - https://github.com/open-android/Android
 - https://www.jianshu.com/p/9618c038135f
+
+```
+
+```
