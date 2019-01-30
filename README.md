@@ -821,7 +821,7 @@ public class MainActivity extends AppCompatActivity {
 
 ## 1.9 自定义View
 
-### 1、屏幕坐标系
+### 1.9.1 屏幕坐标系
 
 手机屏幕左上角为坐标原点，向右为x轴增大方向，向下为y轴增大方向
 
@@ -829,7 +829,7 @@ public class MainActivity extends AppCompatActivity {
 
 ![20190129_view_1](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_view_1.PNG)
 
-### 2、view的坐标
+### 1.9.2 view的坐标
 
 view的坐标是相对父容器而言的，包括：getTop()、getBottom()、getLeft()、getRight()。
 
@@ -837,9 +837,9 @@ view的坐标是相对父容器而言的，包括：getTop()、getBottom()、get
 
 ![20190129_view_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_view_2.PNG)
 
-从android3.0开始，View增加了几个参数：x、y、translationX和traslationY，x和y是View左上角的坐标，而translationX和traslationY是View左上角相对于父容器的偏移量。这几个参数是相对于父容器的坐标，并且translationX和traslationY的默认值是0，和View的四个基本的位置参数一样，View也提供了get和set方法。这几个参数的换算关系如下： x=left+translationX y=top+translationY View在平移的过程中， top和left表示原始左上角的位置信息，它们的值并不会发生改变，此时发生改变的是x、y、translationX和traslationY这四个参数。
+从android3.0开始，View增加了几个参数：x、y、translationX和translationY，x和y是View左上角的坐标，而translationX和translationY是View左上角相对于父容器的偏移量。这几个参数是相对于父容器的坐标，并且translationX和translationY的默认值是0，和View的四个基本的位置参数一样，View也提供了get和set方法。这几个参数的换算关系如下： x=left+translationX y=top+translationY View在平移的过程中， top和left表示原始左上角的位置信息，它们的值并不会发生改变，此时发生改变的是x、y、translationX和translationY这四个参数。
 
-### 3、MotionEvent和TouchSlop
+### 1.9.3 MotionEvent和TouchSlop
 
 MotionEvent中的getRaw和get：
 
@@ -852,7 +852,7 @@ TouchSlop：
 
 - TouchSlop是系统所能识别出的被认为是滑动的最小距离，就是两次滑动之间的距离小于这个常量，系统就不认为你在进行滑动操作，这是一个常量，和设备有关。获取方法：ViewConfiguration.get(getContext()).getScaledTouchSlop()。
 
-### 4、角度与弧度
+### 1.9.4 角度与弧度
 
 注：默认的屏幕坐标系中角度增大方向为顺时针
 
@@ -870,7 +870,7 @@ TouchSlop：
 
 角度和弧度的换算：rad = deg x π / 180，deg = rad x 180 / π，其中rad是弧度，deg是角度。圆的周长为2πr，由上面弧度概念可知圆360度对应2π弧度。
 
-### 5、简介颜色
+### 1.9.5 简介颜色
 
 屏幕上默认的模式是RGB565，而我们常用的都是ARGB8888（四通道高精度(32位)）和ARGB4444（四通道低精度(16位)），还有一种不常用的Alpha8（仅有透明通道(8位)）。
 
@@ -892,7 +892,7 @@ ARGB通道，其中RGB是红绿蓝，A是Alpha（通常用来作为此颜色的�
 
 ![20190129_view_8](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_view_8.gif)
 
-### 6、颜色混合模式
+### 1.9.6 颜色混合模式
 
 安卓着色器(tint)可以为图标着色，既可以在xml中，也可以在代码中设置，一共有16种颜色混合模式。
 
@@ -939,7 +939,7 @@ PorterDuff模式的混合计算公式：（D指原本在Canvas上的内容dst，
 - SRC_OVER：[Sa + (1 - Sa)Da, Rc = Sc + (1 - Sa)Dc]
 - XOR：[Sa + Da - 2 * Sa * Da, Sc * (1 - Da) + (1 - Sa) * Dc]
 
-### 7、定义颜色
+### 1.9.7 定义颜色
 
 上面简单了解了一下颜色的相关内容，现在来介绍一下使用。
 
@@ -965,7 +965,7 @@ int color4=getResources().getColor(R.color.blue);//引用xml中定义的颜色
 </resources>
 ```
 
-### 8、自定义View绘制流程
+### 1.9.8 自定义View绘制流程
 
 ![20190129_view_10](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_view_10.PNG)
 
@@ -1059,7 +1059,7 @@ public void onDraw(Canvas canvas)
 
 就是实际绘制内容。
 
-### 9、绘制随手移动的小球
+### 1.9.9 绘制随手移动的小球
 
 ```
 package com.lcfu1.view;
@@ -1119,7 +1119,7 @@ public class DrawView extends View
 
 在现实中要画东西就需要画纸，而要在屏幕上面画东西，则需要Canvas，也就是画布。
 
-### 10、Canvas
+### 1.9.10 Canvas
 
 常用方法如下：
 
@@ -1291,7 +1291,7 @@ canvas.drawRect(0,0,100,100,mPaint);//画距形
 
 ![20190129_view_17](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_view_17.PNG)
 
-### 11、Paint
+### 1.9.11 Paint
 
 上面简述了Canvas的使用，要想在Canvas上画东西，肯定不能少了Paint，也就是画笔。
 
@@ -1318,7 +1318,831 @@ paint.setStrokeCap(Paint.Cap.ROUND);
 paint.setStrokeJoin(Paint.Join.ROUND);
 ```
 
-## 2.0 面试题
+### 1.9.12 自定义View的分类
+
+自定义View的分类标准不是唯一的，有些人分为两类：自定义View和自定义ViewGroup，而这里分为4类，如下：
+
+1. 继承View重写onDraw方法：用于实现一些不规则的效果，需要自己支持wrap_content和处理padding。
+2. 继承ViewGroup派生特殊的Layout：用于实现自定义布局，需要合适地处理ViewGroup的测量和布局这两个过程，并同时处理子元素的测量和布局过程。
+3. 继承特定的View（如TextView）：扩展已有View的功能，不需要自己支持wrap_content和处理padding。 
+4. 继承特定的ViewGroup（如LinearLayout）：不需要自己处理ViewGroup的测量和布局这两个过程。
+
+### 1.9.13 自定义View需要注意的事项
+
+1. 让View支持wrap_content：直接继承View或ViewGroup的控件如果不在onMeasure中对wrap_content做特殊处理，那么在布局中设置wrap_content并不会达到预期的效果。
+2. 让View支持padding：直接继承View的控件如果不在draw方法中处理padding，那么在布局中设置padding属性是达不到预期效果的（margin属性是由父容器控制的，所以不需要做特殊的处理）。继承ViewGroup的控件则需要在onMeasure和onLayout中考虑padding和子元素的margin对其造成的影响。
+3. 不要在View中使用Handler：View内部提供了post系列的方法来替代Handler的作用。
+4. 及时停止View中的线程或动画：如果View中有线程或动画，当包含此View的Activity退出、此View被remove或此View变得不可见时（预防内存泄漏），就调用onDetachedFromWindow方法。当包含此View的Activity启动时，就调用onAttachedToWindow方法。
+5. 处理好View中的滑动冲突：当View带有滑动嵌套时，就要合适地处理滑动冲突，否则会影响View的效果。
+
+### 1.9.14 继承View重写onDraw方法
+
+举个简单的例子，如下：
+
+CircleView.java代码如下：
+
+```
+package com.lcfu1.view;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class CircleView extends View{
+    private Paint mPaint = new Paint();
+    private int mColor= Color.BLUE;
+
+    public CircleView(Context context) {
+        super(context);
+        init();
+    }
+    public CircleView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+    
+    private void init() {
+        mPaint.setColor(mColor);
+        mPaint.setStyle(Paint.Style.FILL);
+    }
+    
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int paddingLeft=getPaddingLeft();
+        int paddingRight=getPaddingRight();
+        int paddingTop=getPaddingTop();
+        int paddingBottom=getPaddingBottom();
+        int width=getWidth()-paddingLeft-paddingRight;
+        int height=getHeight()-paddingTop-paddingBottom;
+        int radius=Math.min(width,height);
+        canvas.drawCircle(width/2+paddingLeft,height/2+paddingTop,radius/2,mPaint);
+    }
+}
+```
+
+布局如下：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.lcfu1.view.CircleView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#fc5355"
+        android:layout_margin="30dp"
+        android:padding="20dp"/>
+</LinearLayout>
+```
+
+上面的代码是绘制一个中心点以宽高的最小值为直径的蓝色实心的圆形，因为margin属性是由父容器控制的，所以不需要在CircleView中做特殊的处理。但是直接继承View和ViewGroup的控件，padding属性是默认不生效的，需要在CircleView中自己处理。
+
+没在代码中进行处理，设置padding属性是不生效的，如下：
+
+![20190130_view_1](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_1.PNG)
+
+在代码中处理后如下：
+
+![20190130_view_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_2.PNG)
+
+为CircleView添加自定义属性，在values目录下新建一个attr.xml（文件名没有特殊限制，可以根据需要来命名），attr.xml如下：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CircleView">
+        <attr name="circle_color" format="color"/>
+    </declare-styleable>
+</resources>
+```
+
+CircleView.java代码修改如下：
+
+```
+package com.lcfu1.view;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class CircleView extends View{
+    private Paint mPaint = new Paint();
+    private int mColor= Color.BLUE;
+
+    public CircleView(Context context) {
+        super(context);
+        init();
+    }
+    public CircleView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        TypedArray typedArray=context.obtainStyledAttributes(attrs,R.styleable.CircleView);
+        //如果没有指定circle_color属性就选择Color.BLUE做为默认颜色
+        mColor=typedArray.getColor(R.styleable.CircleView_circle_color,Color.BLUE);
+        //实现资源
+        typedArray.recycle();
+        init();
+    }
+    
+    private void init() {
+        mPaint.setColor(mColor);
+        mPaint.setStyle(Paint.Style.FILL);
+    }
+    
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int paddingLeft=getPaddingLeft();
+        int paddingRight=getPaddingRight();
+        int paddingTop=getPaddingTop();
+        int paddingBottom=getPaddingBottom();
+        int width=getWidth()-paddingLeft-paddingRight;
+        int height=getHeight()-paddingTop-paddingBottom;
+        int radius=Math.min(width,height);
+        canvas.drawCircle(width/2+paddingLeft,height/2+paddingTop,radius/2,mPaint);
+    }
+}
+```
+
+布局如下：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.lcfu1.view.CircleView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#fc5355"
+        android:layout_margin="30dp"
+        android:padding="20dp"
+        app:circle_color="#ffea00"/>
+</LinearLayout>
+```
+
+效果如下：
+
+![20190130_view_3](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_3.PNG)
+
+上面代码首先加载自定义属性集合CircleView，然后解析circle_color属性，如果没有指定circle_color属性就选择Color.BLUE做为默认颜色，解析完成后就使用recycle()方法实现资源。在布局中使用自定义属性必须在布局文件中添加schemas声明，如：xmlns:app=”http://schemas.android.com/apk/res-auto”，app是自定义属性的前缀，使用如：app:circle_color=”#ffea00”。还有另外一个声明方法，就是使用该工程的应用包名，如xmlns:app=”http://schemas.android.com/apk/res/com.lcfu1.view”，这种声明方式也是可以的，但是会有如下提示，所以建议使用第一种方式：
+
+> In Gradle projects, always use http://schemas.android.com/apk/res-auto for custom attributes less… (Ctrl+F1) In Gradle projects, the actual package used in the final APK can vary; for example,you can add a .debug package suffix in one version and not the other. Therefore, you should not hardcode the application package in the resource; instead, use the special namespace http://schemas.android.com/apk/res-auto which will cause the tools to figure out the right namespace for the resource regardless of the actual package used during the build. 翻译：在Gradle项目中，总是使用http://schemas.android.com/apk/res-auto来获取定制属性。(Ctrl + F1) 在Gradle项目中，最终APK中使用的实际包会有所不同;例如，您可以在一个版本中添加.debug包后缀，而不是另一个版本。因此，您不应该在资源中硬编码应用程序包;相反，使用特殊的命名空间http://schemas.android.com/apk/res-auto，它将会导致工具为资源找到正确的名称空间，而不考虑构建期间使用的实际包。
+
+在布局中，设置android:layout_width为match_parent或指定一个值（如200dp）都可以达到预期的效果，如指定为200dp，效果如下：
+
+![20190130_view_4](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_4.PNG)
+
+但如果设置为wrap_content并不会达到预期的效果，而是跟使用match_parent一样。可以通过在代码中指定一个wrap_content模式的默认宽或高来解决，如选择400px作为默认宽或高（注：这里是px而不是dp）。布局中layout_width设置为wrap_content（当然也可以把layout_height也设置为wrap_content，这里只是举个例子），CircleView.java代码修改如下：
+
+```
+package com.lcfu1.view;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class CircleView extends View{
+    private Paint mPaint = new Paint();
+    private int mColor= Color.BLUE;
+
+    public CircleView(Context context) {
+        super(context);
+        init();
+    }
+    public CircleView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        TypedArray typedArray=context.obtainStyledAttributes(attrs,R.styleable.CircleView);
+        //如果没有指定circle_color属性就选择Color.BLUE做为默认颜色
+        mColor=typedArray.getColor(R.styleable.CircleView_circle_color,Color.BLUE);
+        //实现资源
+        typedArray.recycle();
+        init();
+    }
+    
+    private void init() {
+        mPaint.setColor(mColor);
+        mPaint.setStyle(Paint.Style.FILL);
+    }
+    
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        int widthMode = MeasureSpec.getMode(widthMeasureSpec);
+        int widthSize = MeasureSpec.getSize(widthMeasureSpec);
+        int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+        int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+        if(widthMode==MeasureSpec.AT_MOST && heightMode==MeasureSpec.AT_MOST){
+            setMeasuredDimension(400,400);
+        }else if(widthMode==MeasureSpec.AT_MOST){
+            setMeasuredDimension(400,heightSize);
+        }else if(heightMode==MeasureSpec.AT_MOST){
+            setMeasuredDimension(widthSize,400);
+        }
+    }
+    
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        int paddingLeft=getPaddingLeft();
+        int paddingRight=getPaddingRight();
+        int paddingTop=getPaddingTop();
+        int paddingBottom=getPaddingBottom();
+        int width=getWidth()-paddingLeft-paddingRight;
+        int height=getHeight()-paddingTop-paddingBottom;
+        int radius=Math.min(width,height);
+        canvas.drawCircle(width/2+paddingLeft,height/2+paddingTop,radius/2,mPaint);
+    }
+}
+```
+
+效果如下：
+
+![20190130_view_5](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_5.PNG)
+
+如上面的代码 ，AT_MOST对应LayoutParams中的wrap_content，如布局中layout_width使用了wrap_content，就指定一个wrap_content模式的默认宽给它，如400px。这里是px而不是dp。dp（英文density-independent-pixel的缩写，意为密度无关像素），在不同的像素密度的设备上会自动适配。上面的效果截图是正方形的，可能设备刚好是1dp = 2px的，在其它手机上测试就不一定是正方形了，这点是需要注意的。
+
+### 1.9.15 实现一个简单的ImageView
+
+ImageView.java代码如下：
+
+```
+package com.lcfu1.view;
+
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.drawable.Drawable;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class ImageView extends View{
+    private Paint mBitmapPaint=new Paint();
+    private Drawable mDrawable;
+    Bitmap mBitmap;
+    private int mWidth;
+    private int mHeight;
+
+    public ImageView(Context context) {
+        super(context);
+        init();
+    }
+    public ImageView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+        if(attrs!=null){
+            TypedArray typedArray=null;
+            try{
+                typedArray=context.obtainStyledAttributes(attrs,R.styleable.ImageView);
+                mDrawable=typedArray.getDrawable(R.styleable.ImageView_src);
+                measureDrawable();
+            }finally {
+                if(typedArray!=null){
+                    typedArray.recycle();
+                }
+            }
+        }
+        init();
+    }
+    
+    private void measureDrawable() {
+        if(mDrawable==null){
+            throw new RuntimeException("drawable不能为空");
+        }
+        mWidth=mDrawable.getIntrinsicWidth();
+        mHeight=mDrawable.getIntrinsicHeight();
+    }
+    
+    private void init() {
+        //抗锯齿功能
+        mBitmapPaint.setAntiAlias(true);
+    }
+    
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        setMeasuredDimension(resolveSize(mWidth, widthMeasureSpec),
+                resolveSize(mHeight, heightMeasureSpec));
+    }
+    
+    @Override
+    protected void onDraw(Canvas canvas) {
+        if(mBitmap==null){
+            mBitmap = Bitmap.createScaledBitmap(ImageUtils.drawableToBitamp(mDrawable),
+                    getMeasuredWidth(), getMeasuredHeight(), true);
+        }
+        canvas.drawBitmap(mBitmap,getLeft(),getTop(),mBitmapPaint);
+        //保存画布状态
+        canvas.save();
+        //画布顺时针旋转90度
+        canvas.rotate(90);
+        //设置画笔颜色为黑色
+        mBitmapPaint.setColor(Color.BLACK);
+        //设置绘制的文本大小
+        mBitmapPaint.setTextSize(30);
+        //绘制文本
+        canvas.drawText("LCFU1", getLeft() + 50, getTop() - 50, mBitmapPaint);
+        //画布恢复原来的状态
+        canvas.restore();
+    }
+}
+```
+
+上面代码使用了一个drawable转bitmap的工具类ImageUtils.java，代码如下：
+
+```
+package com.lcfu1.view;
+
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+
+//drawable转bitmap
+public final class ImageUtils {
+    private ImageUtils() {
+    }
+    public static Bitmap drawableToBitamp(Drawable drawable) {
+        if (drawable instanceof BitmapDrawable) {
+            BitmapDrawable bd = (BitmapDrawable) drawable;
+            return bd.getBitmap();
+        }
+        int w = drawable.getIntrinsicWidth();
+        int h = drawable.getIntrinsicHeight();
+        Bitmap bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_4444);
+        Canvas canvas = new Canvas(bitmap);
+        drawable.setBounds(0, 0, w, h);
+        drawable.draw(canvas);
+        return bitmap;
+    }
+}
+```
+
+布局如下：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.lcfu1.view.ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:src="@drawable/image" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LCFU1"
+        android:textSize="15sp"
+        android:textColor="#000000"/>
+</LinearLayout>
+```
+
+attr.xml如下：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ImageView">
+        <attr name="src" format="integer"/>
+    </declare-styleable>
+</resources>
+```
+
+效果如下：
+
+![20190130_view_6](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_6.PNG)
+
+如果布局文件中ImageView控件的layout_width和layout_height设置为wrap_content，则效果如下：
+
+![20190130_view_7](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_7.PNG)
+
+attr.xml中的ImageView属性集里面有一个src的整型属性，通过这个自定义属性，我们就可以在ImageView控件中使用该属性来设置图片的资源id。绘制文本，先保存画布状态，然后将画布顺时针旋转90度，再在画布上绘制文字，最后将画布恢复到原来的状态。对画布进行平移或旋转等其实都是对坐标系的平移或旋转，画布本身并没有变化。过程如下：
+
+![20190130_view_8](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_8.PNG)
+
+### 1.9.16 绘制图片
+
+**drawPicture(矢量图)**
+
+使用Picture前请关闭硬件加速，以免引起不必要的问题！请参考Android的硬件加速及可能导致的问题
+
+关闭方法： 在AndroidManifest.xml的加上android:hardwareAccelerated="false"。
+
+> 官方对Picture的描述： A Picture records drawing calls (via the canvas returned by beginRecording) and can then play them back into Canvas (via draw(Canvas) or drawPicture(Picture)).For most content (e.g. text, lines, rectangles), drawing a sequence from a picture can be faster than the equivalent API calls, since the picture performs its playback without incurring any method-call overhead. Note: Prior to API level 23 a picture cannot be replayed on a hardware accelerated canvas. 有道翻译：一个图片记录调用(通过画布返回的开始记录)，然后可以回放到画布(通过绘制(画布)或drawPicture(图片))。对于大多数内容(例如，文本、线条、矩形)，从图片中绘制序列比等效的API调用要快，因为图片执行它的播放而不产生任何方法调用开销。 注意:在API级别23之前，不能在硬件加速画布上重新播放图片。
+
+Picture的公共方法和描述
+
+- beginRecording(int width, int height)：开始录制 (返回一个Canvas，在Canvas中所有的绘制都会存储在Picture中)。
+- createFromStream(InputStream stream)：通过输入流创建一个Picture，该方法在API级别18中被弃用。推荐的替代方法是不使用writeToStream，而是把图片画成一个位图，你可以把它作为原始的或压缩的像素来保存。
+- draw(Canvas canvas)：将Picture中内容绘制到Canvas中。
+- endRecording()：结束录制。
+- getHeight()：获取高度。
+- getWidth()：获取宽度。
+- requiresHardwareAcceleration()：指示Picture是否包含只在绘制到硬件加速画布时才工作的记录命令。
+- writeToStream(OutputStream stream)：将Picture中内容写出到输出流中，该方法在API级别18中被弃用。推荐的方法是将图片绘制到位图中，您可以将其作为原始的或压缩的像素保存。
+
+录制的内容是不会直接显示在屏幕上的，需要使用下面几种方法把它显示出来：
+
+- Picture提供的draw方法
+  - 对Canvas有影响，可操作性较弱。
+- Canvas提供的drawPicture方法
+  - 对Canvas没有影响，可操作性较强。
+- PictureDrawable的draw方法
+  - 对Canvas没有影响，可操作性较强。
+
+简单示例：
+
+```
+package com.lcfu1.view;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Picture;
+import android.graphics.drawable.PictureDrawable;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class canvas extends View {
+    // 1.创建一个画笔
+    private Paint mPaint = new Paint();
+    private Picture mPicture = new Picture();
+
+    public canvas(Context context) {
+        super(context);
+    }
+    
+    public canvas(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+        //调用录制方法
+        recording();
+    }
+    
+    //初始化画笔
+    private void init() {
+        mPaint.setColor(Color.RED);
+        mPaint.setStyle(Paint.Style.STROKE);
+        mPaint.setStrokeWidth(2);
+    }
+    
+    @Override
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+    
+        //使用Picture提供的draw方法绘制
+        //mPicture.draw(canvas);
+    
+        //使用Canvas提供的drawPicture方法绘制
+        //canvas.drawPicture(mPicture);
+    
+        //将Picture包装成为PictureDrawable，使用PictureDrawable的draw方法绘制
+        PictureDrawable drawable=new PictureDrawable(mPicture);
+        //这里要设置绘制区域，不然显示不出来
+        drawable.setBounds(0,0,400,400);
+        drawable.draw(canvas);
+    }
+    
+    //录制方法
+    private void recording() {
+        Canvas canvas = mPicture.beginRecording(400, 400);// 开始录制 (接收返回值Canvas)
+        canvas.drawColor(Color.GRAY);
+        canvas.translate(200,200);//位移
+        canvas.drawCircle(0,0,100,mPaint);//绘制圆
+        mPicture.endRecording();
+    }
+}
+```
+
+layout中：
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.lcfu1.view.canvas
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+</LinearLayout>
+```
+
+效果如下：
+
+![20190130_view_9](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_9.PNG)
+
+**drawBitmap(位图)**
+
+drawBitmap的常用方法如下：
+
+```
+// 第一种，绘制图片内容，默认从坐标原点开始
+public void drawBitmap(Bitmap bitmap, Matrix matrix, Paint paint)
+
+// 第二种，指定与坐标原点的距离,这里要注意的是坐标原点，如果canvas有位移、旋转等操作，坐标原点会发生相应变化
+public void drawBitmap(Bitmap bitmap, float left, float top, Paint paint)
+
+// 第三种，Rect src指定绘制图片的区，Rect dst 或RectF dst指定图片在屏幕上显示(绘制)的区域
+public void drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)
+public void drawBitmap(Bitmap bitmap, Rect src, RectF dst, Paint paint)
+```
+
+简单示例如下：
+
+```
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.support.annotation.Nullable;
+import android.util.AttributeSet;
+import android.view.View;
+
+/**
+ * Created by lcf on 2018/4/21 0021.
+ */
+
+public class picture extends View {
+    Bitmap mBitmap;
+
+    public picture(Context context) {
+        super(context);
+    }
+    
+    public picture(final Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+    
+        //从mipmap获取Bitmap
+        mBitmap= BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_launcher);
+    
+        //从assets获取Bitmap
+//        try {
+//            InputStream inputStream =context.getAssets().open("lcfu1.jpg");
+//            mBitmap = BitmapFactory.decodeStream(inputStream);
+//            inputStream.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+
+    }
+    
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+    
+        //绘制图片内容，默认从坐标原点开始
+        //canvas.drawBitmap(mBitmap, new Matrix(),new Paint());
+    
+        //指定与坐标原点的距离,这里要注意的是坐标原点，如果canvas有位移、旋转等操作，坐标原点会发生相应变化
+        //canvas.drawBitmap(mBitmap,100,100,new Paint());
+    
+        Rect src = new Rect(0,0,mBitmap.getWidth(),mBitmap.getHeight()/2);// 指定图片绘制区域
+        Rect dst = new Rect(0,0,mBitmap.getWidth(),mBitmap.getHeight()/2);//指定图片在屏幕上显示的区域,也就是给个固定区域来填满显示
+        canvas.drawBitmap(mBitmap,src,dst,new Paint());// 绘制图片
+    }
+}
+```
+
+效果如下：
+
+![20190130_view_10](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_view_10.PNG)
+
+上面例子是通过BitmapFactory从资源文件中获取Bitmap的，获取Bitmap的三种方式如下：
+
+1. 通过Bitmap创建：复制一个已有的Bitmap(新Bitmap状态和原有的一致)或者创建一个空白的Bitmap(内容可改变)。
+
+2. 通过BitmapDrawable获取：从资源文件、内存卡、网络等地方获取一张图片并转换为内容不可变的Bitmap。
+
+3. 通过BitmapFactory获取：从资源文件、内存卡、网络等地方获取一张图片并转换为内容不可变的Bitmap。
+
+BitmapFactory获取Bitmap的方法：
+
+1. 从资源文件drawable、mipmap、raw、assets获取：
+
+```
+//从mipmap获取Bitmap
+mBitmap= BitmapFactory.decodeResource(context.getResources(),R.mipmap.ic_launcher);
+
+//从assets获取Bitmap
+try{
+	InputStream is =context.getAssets().open("lcfu1.jpg");
+	mBitmap = BitmapFactory.decodeStream(is);
+	is.close();
+} catch (IOException e) {
+	e.printStackTrace();
+}
+```
+
+2. 内存卡文件：
+
+```
+mBitmap= BitmapFactory.decodeFile("sdcard/lcfu1.jpg");
+```
+
+3. 网络文件：
+
+```
+// 需要获取网络输入流的代码
+Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+inputStream.close();
+```
+
+## 2.0 AndroidStudio
+
+### 2.0.1 优势
+
+1. 由Google公司开发并大力完善和支持。
+2. 稳定速度快：启动速度快，与其他IDE（集成开发环境Integrated Development Environment）相比，性能明显提升了。
+3. 强大的UI编辑器：能实时展示界面布局效果。
+4. 完善的插件管理：支持多种插件，可支持在插件管理中下载。
+5. 支持多种代码管理工具：直接支持Git、SVN等主流的代码管理工具。
+6. 整合了Gradle构建工具：Gradle继承了Ant的灵活性和Maven的生命周期管理，不使用XML作为配置文件格式，采用了DSL格式，使得脚本更加灵活简洁。
+7. 内置终端：不需要自己打开一个终端来使用ADB等工具，当然也可以使用[Genymotion安卓模拟器](https://www.genymotion.com/)。
+8. 智能化：智能保存、补齐等，提高开发效率。
+
+### 2.0.2 下载安装
+
+1. 可到[Android Studio中文社区](http://www.android-studio.org/)或[https://developer.android.google.cn/studio/](https://developer.android.google.cn/studio/)进行下载。
+2. 最好下载的Android Studio包含构建 Android 应用所需的所有工具。
+3. 如果电脑上已安装了JDK，则安装Android Studio时只需安装默认的选项。
+4. 如果电脑上有SDK，可选择本地的SDK目录。
+
+### 2.0.3 离线配置Gradle
+
+1. Android Studio没有自带Gradle插件，但会自动下载Gradle。
+2. [下载Gradle](http://gradle.android-studio.org/)。
+3. 进入C:\Users\Administrator\.gradle\wrapper\dists\gradle-4.1-all\bzyivzo6n839fup2jbap0tjew，最后这个文件夹是随机生成的，直接进入，把下载好的gradle-3.0-all.zip放到这个文件夹内。
+4. 重启Android Studio。
+
+!> 注：Gradle是一种依赖管理工具，基于Groovy语言，抛弃了基于XML的各种繁琐配置，取而代之的是一种基于Groovy的内部领域特定语言（DSL），掌握Gradle脚本的编译和打包是应用开发非常必要的。
+
+### 2.0.4 第一个Android程序
+
+**项目的结构模式：**
+
+![20190130_androidstudio_1](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_1.PNG)
+
+**Android模式的项目结构：**
+
+![20190130_androidstudio_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_2PNG)
+
+**Project模式的项目结构：**
+
+![20190130_androidstudio_3](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_3.PNG)
+
+**app目录：**
+
+![20190130_androidstudio_4](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_4.PNG)
+
+**Project模式目录讲解：**
+
+1. .gradle和.idea：Android Studio自动生成的，不需要手动编辑。
+2. app：放置项目中的代码、资源等内容。
+3. build：编译时自动生成的文件。
+4. gradle：包含了gradle wrapper的配置文件，使用gradle wrapper的方式不需要提前将gradle下载好，而是会自动根据本地缓存情况决定是否联网下载。Android Studio默认没有启动gradle wrapper的方式，可自己设置：File->Settings->Build，Execution，Deployment->Gradle。
+5. .gitignore：过虑不需要上传的文件或目录。
+6. build.gradle：项目全局的gradle构建脚本。
+7. gradle.properties：全局的gradle配置文件。
+8. gradlew和gradlew.bat：用于在命令行界面中执行gradle命令，其中gradlew是在Linux或Mac系统中使用的，gradlew.bat是在Windows系统中使用的。
+9. Hello.iml：用于标识这是一个IntelliJ IDEA项目，所有的IntelliJ IDEA项目都会自动生成的一个文件（Android Studio是基于IntelliJ IDEA开发的）。
+10. local.properties：指定本机Android SDK路径，如果Android SDK路径改变了，就修改此文件中的路径为新的本机Android SDK路径。
+11. Settings.gradle：用于指定项目中所有引入的模块，Hello项目中只有一个app模块，所以只引入app模块。
+
+**app目录讲解：**
+
+1. build：编译时自动生成的文件。
+2. libs：放置第三方jar包，会自动添加到构建路径中。
+3. androidTest：用来编写Android Test测试用例的，可以对项目进行一些自动化测试。
+4. java：放置所有Java代码。
+5. res：放置项目所需资源。
+6. AndroidManifest.xml：Android项目的配置文件。
+7. test：用来编写Unit Test测试用例的，是对项目进行自动化测试的另一种方式。
+8. .gitignore：过虑app模块中不需要上传的文件或目录。
+9. app.iml：IntelliJ IDEA项目自动生成的文件。
+10. build.gradle：app模块的gradle构建脚本。
+11. proguard-rules.pro：指定项目的混淆规则，将代码进行混淆以防别人破解。
+
+### 2.0.5  实用技巧
+
+#### 代码管理
+
+1. 在电脑上安装Git，[windows下载地址](https://gitforwindows.org/)。
+
+2. 配置File->Settings->Version Control->Git，配置Git目录。
+
+![20190130_androidstudio_5](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_5.PNG)
+
+3. 配置File->Settings->Version Control->GitHub，点击Create API Token登录GitHub。
+
+![20190130_androidstudio_6](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_6.PNG)
+
+4. 菜单栏->VCS->Enable Version Control Integration，选择Git，完成后工具栏会新增如下图所示的快捷工具：
+
+![20190130_androidstudio_7](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_7.PNG)
+
+5. 过虑不需要上传的文件或目录，File->Settings->Version Control->Ignored Files，选择不需要同步的文件或文件夹，也可以通过修改.gitignore文件来实现，建议使用第一种方式，如下图：
+
+![20190130_androidstudio_8](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_8.PNG)
+
+6. 同步代码到Github，菜单栏->VCS->Import into Version Control->Share Project On GitHub，如下图：
+
+![20190130_androidstudio_9](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_9.PNG)
+7. 单击Share按钮后，会弹出提交文件列表，不需要上传的文件或目录，可以不选择它，同步完成后就可以在Github上看到该目录了。
+
+![20190130_androidstudio_10](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_10.PNG)
+
+8. 后面修改的代码，就可以使用VCS快捷工具进行快速同步到Github上。
+
+![20190130_androidstudio_11](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_11.PNG)
+#### 代码编辑技巧
+
+1. 可通过File->Settings->Keymap来设置快捷键，如下图：
+
+![20190130_androidstudio_12](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_12.PNG)
+
+2. 内容补全：在写完方法名或需要用{}前，使用Ctrl+Shift+Enter组合键进行快速补全。
+
+3. 列选择：按住Alt键选择代码块，可进行多行编辑。
+
+4. 代码补全：使用Enter键可从光标处插入提示补全的代码，对前面的不做修改。使用Tab键可进行选择，但会删除后面的代码，直到遇到点号、圆括号、分号、空格等为止。
+
+5. 查看方法调用路径：Ctrl+Alt+H组合键。
+
+6. 预览某个方法或类的实现：Ctrl+Shift+I组合键。
+
+7. 快速使用命令：Ctrl+Shift+A组合键。对于没有设置快捷键或忘记快捷键的菜单功能或命令时，可以使用该命令进行模糊匹配以快速调用。
+
+8. 自动导入包设置：File->Settings->Editor->General->Auto Import，选中Show import popup、Show import pupup、Optimize imports on the fly 和 Add unambiguous imports on the fly，设置完成后就可以自动导入包和自动去掉无用包了。如下图：
+
+![20190130_androidstudio_13](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_13.PNG)
+9. Tip of the day：每次打开Android Studio都会出现一个Tip of the day，我们也可以手动打开：Help->Tip of the day。如下图：
+
+![20190130_androidstudio_14](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_14.PNG)
+
+#### 快捷键
+
+| 快捷键                | 作用                   |
+| --------------------- | ---------------------- |
+| Ctrl+鼠标左键点击     | 打开此关键字说明       |
+| Alt+回车              | 导入包，自动修正       |
+| Ctrl+N                | 查找类                 |
+| Ctrl+Shift+N          | 查找文件               |
+| Ctrl+Alt+L            | 格式化代码             |
+| Ctrl+R                | 替换文本               |
+| Ctrl+alt+空格         | 代码提示               |
+| Ctrl+D                | 复制行                 |
+| Ctrl+X                | 删除行                 |
+| Ctrl+P                | 方法参数提示           |
+| Ctrl+/                | 注释                   |
+| Alt＋Up and Alt＋Down | 可在方法间快速移动     |
+| Ctrl+Shift+Enter      | 内容补全               |
+| 按住Alt键选择         | 列选择                 |
+| Ctrl+Alt+H            | 查看方法调用路径       |
+| Ctrl+Shift+I          | 预览某个方法或类的实现 |
+| Ctrl+Shift+A          | 快速使用命令           |
+
+#### 调试技巧
+
+1. 调试程序：通过菜单->Build->Attach to Android Process，也可以通过工具栏快捷键工具Attach to Android Process进入调试模式。
+2. 条件断点：通过右键断点对一个断点加入条件，即填写Condition中的条件，只有满足条件时，才会进入断点。
+3. 日志断点：当想打印一些日志信息，但又不想添加log代码后重新部署时，则可以在断点上单击鼠标右键，取消选中Suspend，然后勾选Log evaluated Expression，并在输入框中输入要打印的日志信息。
+4. 分析传入/传出数据流：Menu->Analyze->Analyze Data Flow to Here这个操作将会根据当前选中的变量、参数或字段，分析出其传递到此处的路径。传出数据流（Analyze Data Flow from Here）则会分析当前选中的变量往下传递的路径，直到结束。
+5. 修改变量值：修改变量值可以快速调试各个Case，提高异常处理的调试效率。
+
+## 2.1 面试题
 
 ### 1、说一下Activity的生命周期
 
