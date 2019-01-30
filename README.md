@@ -2979,117 +2979,1134 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 # 七、HTML
 
 
-
 # 八、CSS
-
 
 
 # 九、JavaScript
 
 
+# 十、数据库
 
-# 十、Oracle
+## 10.1 简介
+
+### 10.1.1 数据
+
+- 指所有能输入到计算机中并被计算机程序处理 的符号的总称。 
+
+### 10.1.2 数据处理
+
+- 指对各种形式的数据进行收集、储存、加 工和传播的一系列活动的综合。其目的是从大量的、原 始的数据中抽取、推导出对人们有价值的信息。 
+
+### 10.1.3 数据库
+
+数据库(database)
+
+- 以一定方式存储在一起，能为多个用户共享， 具有尽可能小的数据冗余特点，与应用程序彼此独 立的数据集合。
+- 长期存储在计算机内，有组织的管理，具有 较小冗余，可供多个用户共享的数据集合。
+
+### 10.1.4 数据库管理系统
+
+数据库管理系统(database management system,DBMS)，是位于用户和操作系统(OS)之间的一层数据管理软件，负责对数据库进行统一的管理和控制，并为用户和应用程序提供访问数据库的方法。
+
+### 10.1.5 数据库系统
+
+数据库系统(database system,DBS)，是计算机系统、DB、DBMS、应用软件、数据库管理员(database administrator，DBA)和用户的集合。
+
+### 10.1.6 数据库技术的发展
+
+- 第一代数据库技术，即层次数据库和网状数据库技术
+- 第二代数据库技术，即关系数据库技术
+- 第三代数据库技术，即新一代数据库技术
+
+### 10.1.7 计算机数据管理技术
+
+经历的三个阶段：
+
+**人工管理阶段**
+
+- 数据不保存
+- 人工管理数据
+- 数据不共享
+- 数据不具有独立性
+
+**文件系统阶段**
+
+- 数据可以长期保存
+- 文件的多样化和结构化
+- 文件系统管理数据
+
+**数据库系统阶段**
+
+- 数据的整体结构化
+- 数据独立性高
+- 数据的共享性高，冗余度低，易扩充
+- 提供了完整的控制功能
+
+## 10.2 简单的查询语句
+
+### 10.2.1 SQL
+
+SQL(Structured Query Language)，结构化查询语言。
+
+### 10.2.2 结构化查询语言分类
+
+- 数据查询语言（DQL:Data Query Language）：语句主要包括 SELECT，用于从表中检索数据。
+- 数据操作语言（DML：Data Manipulation Language）：语句主要包括INSERT，UPDATE和DELETE，用于添加，修改和删除表中的行数据。
+- 事务处理语言（TPL:Transaction Process Language）：语句主要包括COMMIT和ROLLBACK，用于提交和回滚。
+- 数据控制语言（DCL:Data Control Language）：语句主要包括GRANT和REVOKE，用于进行授权和收回权限。
+- 数据定义语言（DDL:Data Definition Language）：语句主要包括CREATE、DROP、ALTER，用于定义、销毁、修改数据库对象。
+
+### 10.2.3 SQL概念和规则
+
+相关概念
+
+- 关键字（Keyword）：SQL语言保留的字符串，例如，SELECT 和FROM都是关键字。
+- 语句（statement）：一条完整的SQL命令，例如，SELECT * FROM dept 是一条语句。
+- 子句（clause）：部分的SQL语句，通常是由关键字加上其它 语法元素构成，例如，SELECT * 是一个子句，FROM table也是一个子句。
+
+书写规则
+
+- 不区分大小写，也就是说SELECT，select，Select，执行时 效果是一样的，关键字建议大写，其它语法元素（如列名、表名等）小写。
+- 可以单行来书写，也可以书写多行，建议分多行书写，增强代码可读性，通常以子句为单位进行分行。
+- 关键字不可以缩写、分开以及跨行书写，如SELECT不可以写成SEL或SELE CT等形式。
+- Tab和缩进的使用可以提高程序的可读性。
+
+### 10.2.4 SQL所涉及的运算符和函数
+
+| 名称     | 运算符                                                       | 说明                                                         |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 比较运算 | =、!=、>、<、>=、<=、<>、!>、!<、                            | 等于、不等于、大于...                                        |
+|          | BETWEEN AND、NOT BETWEEN AND                                 | 介于两者之间、介于两者之外                                   |
+| 谓       | IN、NOT IN                                                   | 在其中、不在其中                                             |
+| 词       | LIKE、NOT LIKE                                               | 匹配、不匹配                                                 |
+|          | IS NULL、IS NOT NULL                                         | 是空值、不是空值                                             |
+| 逻辑运算 | NOT、AND、OR                                                 | 非、与、或                                                   |
+| 集函数   | COUNT(*)、COUNT(列名)、SUM(列名)、AVG(列名)、MAX(列名)、MIN(列名) | 统计元组个数、统计列值个数、列值汇总、求列值平均、求列值最大、求列值最小 |
+
+### 10.2.5 运算符的优先级
+
+| 优先级 | 运算分类       | 运算符举例                     |
+| ------ | -------------- | ------------------------------ |
+| 1      | 算术运算符     | +，-，*，\                     |
+| 2      | 连接运算符     | \|\|                           |
+| 3      | 比较运算符     | =, <>, <, >, <=, >=            |
+| 4      | 特殊比较运算符 | BETWEEN AND，IN，LIKE，IS NULL |
+| 5      | 逻辑非         | NOT                            |
+| 6      | 逻辑与         | AND                            |
+| 7      | 逻辑或         | OR                             |
+
+注：
+
+- 括号()优先于其他操作符。
+
+### 10.2.6 基本SELECT语句
+
+File->New->SQL Window，新建一个SQL窗口，在这里写语句。
+
+```
+SELECT [DISTINCT]{*|column|expression [alias],...}
+FROM table
+[WHERE condition(s)]
+```
+
+注：
+
+- SELECT子句：表示所需检索的数据列。
+- FROM子句：表示检索的数据来自哪个表。
+- condition(s)：表示条件表达式。
+
+### 10.2.7 简单的选择与投影查询
+
+- 无条件查询
+  - 只有SELECT和FROM组成的简单查询。
+- 条件查询
+  - 就是使用WHERE子句为查询增加条件，WHERE子句的条件表达式是一个逻辑表达式，由常量、变量、函数、属性名和各种运算符组成。
+  - WHERE子句可以返回限定的数据行。
+
+### 10.2.8 查询所有列
+
+```
+SELECT *
+FROM emp
+```
+
+注：
+
+- *：等价于所有的列。
+
+### 10.2.9 查询指定列
+
+```
+SELECT ename
+FROM emp
+```
+
+注：
+
+- ename：指的就是ENAME列。
+
+### 10.2.10使用算术运算符
+
+| 运算符 | 描述 |
+| ------ | ---- |
+| +      | 加   |
+| -      | 减   |
+| *      | 乘   |
+| /      | 除   |
+
+**优先级**
+
+- 乘除优先于加减。
+- 相同优先权的表达式按照从左至右的顺序依次计算。
+- 括号可以提高优先权。
+
+```
+SELECT sal,sal+1000
+FROM emp
+```
+
+注：
+
+- sal+1000：查询的结果为sal+1000的值。
+
+### 10.2.11 空值NULL
+
+- 空值是指一种无效的、未赋值、未知的或不可用的值。
+- 空值不同于零或者空格。
+- 任何包含空值的算术表达式运算后的结果都为空值NULL。
+
+```
+SELECT comm,comm+1000
+FROM emp
+```
+
+注：
+
+- comm+1000：只有comm不为空值，相加才有结果，不然就为空值。
+
+- 如果comm为空值，但想相加的值不为空值，可以使用nvl函数，如：
+
+```
+  SELECT comm,nvl(comm+1000,0)
+  FROM emp
+```
+
+### 10.2.12 列别名
+
+用来重新命名列的显示标题。
+
+**使用方法**
+
+- 列名 列别名。
+- 列名 AS 列别名。
+
+**以下情况要添加双引号**
+
+- 列别名中包含有空格。
+- 列别名中要求区分大小写。
+- 列别名中包含有特殊字符。
+
+```
+SELECT ename 员工名,job AS 工作,sal "薪水"
+FROM emp
+```
+
+### 10.2.13 连接操作符
+
+- 用于连接列与列、列和字符。
+- 形式上是以两个竖杠||。
+- 用于创建字符表达式的结果列。
+
+```
+SELECT ename || job
+FROM emp
+```
+
+### 10.2.14 原义字符串
+
+- 原义字符串是包含在SELECT列表中的一个字符、一个数 字或一个日期。
+- 日期和字符字面值必须用单引号引起来。
+- 每个原义字符串都会在每个数据行输出中出现。
+
+```
+SELECT ename || '的工作是' || job AS "Employee Details"
+FROM emp
+```
+
+### 10.2.15 消除重复行
+
+```
+SELECT DISTINCT job
+FROM emp
+```
+
+注：
+
+- 使用DISTINCT关键字。
+
+### 10.2.16 显示表的结构
+
+File->New->Command Window，新建一个Command窗口，可以在这个窗口显示表的结构，如：
+
+```
+Connected to Oracle Database 11g Enterprise Edition Release 11.2.0.1.0 
+Connected as scott@ORCL
+
+SQL> DESC emp
+Name     Type         Nullable Default Comments 
+-------- ------------ -------- ------- -------- 
+EMPNO    NUMBER(4)                              
+ENAME    VARCHAR2(10) Y                         
+JOB      VARCHAR2(9)  Y                         
+MGR      NUMBER(4)    Y                         
+HIREDATE DATE         Y                         
+SAL      NUMBER(7,2)  Y                         
+COMM     NUMBER(7,2)  Y                         
+DEPTNO   NUMBER(2)    Y                         
+
+SQL> 
+```
+
+注：
+
+- 使用DESC emp命令来查看表结构。
 
 
+
+### 10.2.17 比较数值型数据
+
+```
+SELECT deptno
+FROM emp
+WHERE deptno=30
+```
+
+### 10.2.18 比较字符型数据
+
+```
+SELECT job
+FROM emp
+WHERE job='SALESMAN'
+```
+
+注：
+
+- 字符型数据作为被比较的值时，必须用单引号引起来。
+- 字符型数值区分大小写。
+
+### 10.2.19 比较日期型数据
+
+```
+SELECT hiredate
+FROM emp
+WHERE hiredate>'01-1月-81'
+```
+
+注：
+
+- 日期型数值作为被比较的值时，必须用单引号引起来。
+- 日期型数值是区分日期表达形式的，默认的日期形式是DD-MON-RR。
+
+### 10.2.20 BETWEEN AND
+
+用来判断要比较的值是否在某个范围内。
+
+```
+SELECT deptno
+FROM emp
+WHERE deptno BETWEEN 20 AND 30
+```
+
+### 10.2.21 IN
+
+用来判断要比较的值是否和集合列表中的任何一个值相等。
+
+```
+SELECT deptno
+FROM emp
+WHERE deptno IN(20,30)
+```
+
+### 10.2.22 LIKE
+
+- 使用LIKE运算符判断要比较的值是否满足部分匹配，也叫模糊查询。
+- 模糊查询中两个通配符：
+  - %：代表零或任意更多的字符。
+  - _：代表一个字符。
+  - 如果要查询的字符串本身就含有%或_，可以使用ESCAPT进行转义。
+  - ESCAPE '\'短语表示\为换码字符，紧跟在\后面的字符“%”不再具有通配符的含义，而转义为普通的“%”字符。
+
+```
+SELECT ename
+FROM emp
+WHERE ename LIKE 'M%'
+
+SELECT ename
+FROM emp
+WHERE ename LIKE '_M%'
+
+SELECT ename
+FROM emp
+WHERE ename LIKE 'S\%%' ESCAPE '\'
+```
+
+### 10.2.23 IS NULL
+
+使用IS NULL运算符来判断要比较的值是否为空值NULL。
+
+```
+SELECT comm
+FROM emp
+WHERE comm IS NULL
+```
+
+### 10.2.24 AND
+
+要求两个条件都为真，结果才为真。
+
+```
+SELECT ename,job
+FROM emp
+WHERE ename LIKE 'S%' AND job='CLERK'
+```
+
+### 10.2.25 OR
+
+只需要两个条件中的一个为真，结果就返回真。
+
+```
+SELECT ename,job
+FROM emp
+WHERE ename LIKE 'S%' OR job='CLERK'
+```
+
+### 10.2.26 NOT
+
+可以和IN、BETWEEN AND、LIKE、IS NULL一起使用。
+
+```
+SELECT job
+FROM emp
+WHERE job NOT IN('CLERK')
+```
+
+### 10.2.27 ORDER BY子句
+
+ORDER BY子句能对查询结果集进行排序，语法结构如下：
+
+```
+SELECT  [DISTINCT] { * | 列名|表达式[别名][,...]}
+FROM表名 [WHERE  条件]
+[ORDER BY  {列名|表达式|列别名|列序号} [ASC|DESC],…]
+```
+
+注：
+
+- 可以按照列名、表达式、列别名、结果集的列序号排序。
+- ASC：升序，默认值。
+- DESC：降序。
+- ORDER BY 子句必须写在SELECT语句的后。
+
+**排序规则**
+
+- 数字升序排列小值在前，大值在后。即按照数字大小顺序由小到大排列。
+- 日期升序排列相对较早的日期在前，较晚的日期在后。
+- 字符升序排列按照字母由小到大的顺序排列，即由A-Z排列；中文升序按照字典顺序排列。
+- 空值在升序排列中排在后，在降序排列中排在开始。
+
+### 10.2.28 按列名升序排序
+
+```
+SELECT sal
+FROM emp
+ORDER BY sal
+```
+
+### 10.2.29 按列名降序排序
+
+```
+SELECT sal
+FROM emp
+ORDER BY sal DESC
+```
+
+### 10.2.30 按列别名排序
+
+```
+SELECT sal salary
+FROM emp
+ORDER BY salary
+```
+
+### 10.2.31 多列参与排序
+
+```
+SELECT sal,comm
+FROM emp
+ORDER BY sal,comm DESC
+```
+
+注：
+
+- 参与排序的多列都可以指定升序或者降序。
+- ORDERBY子句中可以写没在SELECT列表中出现的列。
+
+### 10.2.32 按结果集列序号排序
+
+```
+SELECT sal,comm
+FROM emp
+ORDER BY 2
+```
+
+注：
+
+- 列名可以用SELECT语句后列的顺序号来代替。
+
+## 10.3 多表连接
+
+### 10.3.1 连接
+
+- 连接是在多个表之间通过一定的连接条件，使表之间发生关联，进而能从多个表之间获取数据。 
+
+- 在WHERE子句中书写连接条件
+
+- 如果在多个表中出现相同的列名，则需要使用表名作为来自该表的列名的前缀。
+- N个表相连时，至少需要N－1个连接条件。
+
+### 10.3.2 笛卡尔积
+
+- 第一个表中的所有行和第二个表中的所有行都发生连接。 
+- 为了避免笛卡尔积的产生，通常需要在WHERE子句中包含 一个有效的连接条件。
+- 产生： 
+  - 连接条件被省略。
+  - 连接条件是无效的。
+
+```
+SELECT emp.ename,dept.deptno
+FROM emp,dept
+```
+
+注：emp表14行，dept表4行，上面得到的结果有14*4=56行。
+
+### 10.3.3 等值连接
+
+```
+SELECT emp.ename,dept.deptno
+FROM emp,dept
+WHERE emp.deptno=dept.deptno
+```
+
+### 10.3.4 表别名
+
+```
+SELECT e.ename,d.dname
+FROM emp e,dept d
+WHERE e.deptno=d.deptno
+```
+
+### 10.3.5 非等值连接
+
+```
+SELECT e.ename,e.sal,s.grade
+FROM emp e,salgrade s
+WHERE e.sal BETWEEN s.losal AND s.hisal
+```
+
+### 10.3.6 外部连接
+
+在多表连接时，可以使用外部连接来查看哪些行，按照连接条件没有被匹配上。 
+
+外部连接的符号是(+)。
+
+```
+SELECT e.ename,d.dname,d.deptno
+FROM emp e,dept d
+WHERE e.deptno(+)=d.deptno
+```
+
+### 10.3.7 自身连接
+
+也叫自连接，是一个表通过某种条件和本身进行连接的一 种方式，就如同多个表连接一样。
+
+```
+SELECT e.ename,m.ename 经理
+FROM emp e,emp m
+WHERE e.mgr=m.empno
+```
+
+### 10.3.8 SQL:1999语法的连接
+
+ANSI SQL:1999标准的连接语法
+
+- Oracle除了上述自己的连接语法外，同时支持美国国家 标准协会（ANSI）的SQL:1999标准的连接语法。
+
+### 10.3.9 交叉连接
+
+交叉连接会产生两个表的交叉乘积，和两个表之间的笛卡尔积是一样的；
+
+使用CROSS JOIN子句完成。
+
+```
+SELECT e.ename,d.dname
+FROM emp e
+CROSS JOIN dept d
+```
+
+### 10.3.10 自然连接
+
+- 自然连接是对两个表之间相同名字和数据类型的列进行的等值连接；
+- 如果两个表之间相同名称的列的数据类型不同，则会产生错误；
+- 使用NATURAL JOIN子句来完成。
+
+```
+SELECT ename,dname
+FROM emp
+NATURAL JOIN dept
+```
+
+### 10.3.11 USING子句
+
+自然连接是使用所有名称和数据类型相匹配的列作为连接条件，而USING子句可以指定用某个或某几个相同名字和数据类型的列作为连接条件。
+
+```
+SELECT deptno,e.ename,d.dname
+FROM emp e 
+JOIN dept d USING(deptno)
+WHERE deptno=20
+```
+
+注： 
+
+- 如果有若干个列名称相同但数据类型不同，自然连接子句可以用USING子句来替换，以指定产生等值连接的列。
+- 如果有多于一个列都匹配的情况，使用USING子句只能指定其中的一列。
+- USING子句中的用到的列不能使用表名和别名作为前缀。
+- NATURAL JOIN子句和USING子句是相互排斥的，不能同时使用。
+
+### 10.3.12 ON子句
+
+- 自然连接条件基本上是具有相同列名的表之间的等值连接。
+- 如果要指定任意连接条件,或指定要连接的列，则可以使用ON子句。
+- 用ON将连接条件和其它检索条件分隔开，其它检索条件写在WHERE子句。
+- ON子句可以提高代码的可读性。
+
+```
+SELECT e.deptno,e.ename,d.dname
+FROM emp e
+JOIN dept d
+ON e.deptno=d.deptno
+WHERE e.deptno=20
+```
+
+### 10.3.13 左外连接
+
+左外连接以FROM子句中的左边表为基表，该表所有行数据按照连接条件无论是否与右边表能匹配上，都会被显示出来。
+
+```
+SELECT e.deptno,e.ename,d.dname
+FROM emp e
+LEFT OUTER JOIN dept d
+ON e.deptno=d.deptno
+```
+
+### 10.3.14 右外连接
+
+右外连接以FROM子句中的右边表为基表，该表所有行数据按照连接条件无论是否与左边表能匹配上，都会被显示出来。
+
+```
+SELECT e.deptno,e.ename,d.dname
+FROM emp e
+RIGHT OUTER JOIN dept d
+ON e.deptno=d.deptno
+```
+
+### 10.3.15 全外连接
+
+全外连接返回两个表等值连接结果，以及两个表中所有等值连接失败的记录。
+
+```
+SELECT e.deptno,e.ename,d.dname
+FROM emp e
+FULL OUTER JOIN dept d
+ON e.deptno=d.deptno
+```
+
+## 10.4 分组函数
+
+### 10.4.1 分组函数
+
+分组函数是对表中一组记录进行操作，每组只返回一个结果，即首先要对表记录进行分组，然后再进行操作汇总，每组返 回一个结果，分组时可能是整个表分为一组，也可能根据条件分成多组。
+
+分组函数常用到以下五个函数：
+
+- MIN
+- MAX
+- SUM
+- AVG
+- COUNT
+
+注：
+
+- MIN和MAX函数主要是返回每组的最小值和最大值。 
+
+```
+SELECT hiredate
+FROM emp
+```
+
+- MIN和MAX可以用于任何数据类型。
+
+- SUM和AVG函数分别返回每组的总和及平均值。 
+
+```
+SELECT SUM(sal),AVG(sal)
+FROM emp
+```
+
+- SUM和AVG函数都是只能够对数值类型的列或表达式操作。 
+
+- COUNT函数返回满足条件的非空(NULL)行的数量 。 
+
+- COUNT(*)：返回表中满足条件的行记录数。
+
+- 组函数中的DISTINCT会消除重复记录后再使用组函数。
+
+```
+SELECT COUNT(DISTINCT deptno)
+FROM emp
+```
+
+- 除了COUNT(*)之外，其它所有分组函数都会忽略列中的空值，然后再进行计算。
+
+- 在分组函数中使用NVL函数可以使分组函数强制包含含有空值的记录。
+
+```
+SELECT COUNT(comm)
+FROM emp
+  
+SELECT COUNT(NVL(comm,0))
+FROM emp
+  
+结果分别为：
+4
+14
+```
+
+### 10.4.2 GROUP BY子句
+
+- GROUP BY子句可将表中满足WHERE条件的记录按照指定的列划分成若干个小组。
+
+```
+SELECT deptno,SUM(sal)
+FROM emp
+GROUP BY deptno
+```
+
+- 在SELECT列表中除了分组函数那些项，所有列都必须包含在GROUP BY子句中。
+
+```
+SELECT ename,deptno,SUM(sal)
+FROM emp
+GROUP BY ename,deptno
+```
+
+- GROUP BY所指定的列并不是必须出现在SELECT列表中。
+
+```
+SELECT SUM(sal)
+FROM emp
+GROUP BY deptno
+```
+
+### 10.4.3 HAVING子句
+
+使用HAVING子句限制组
+
+- 记录已经分组。
+- 使用过组函数。
+- 与HAVING子句匹配的结果才输出。
+
+```
+SELECT deptno,AVG(sal)
+FROM emp
+GROUP BY deptno
+HAVING AVG(sal)>2000
+```
+
+### 10.4.4 组函数和多表连接
+
+```
+SELECT e.deptno,d.dname,COUNT(*)
+FROM emp e,dept d
+WHERE e.deptno=d.deptno
+GROUP BY e.deptno,d.dname
+```
+
+### 10.4.5 组函数的嵌套
+
+与单行函数不同，组函数只能嵌套两层。
+
+```
+SELECT deptno,COUNT(NVL(comm,0))
+FROM emp
+GROUP BY deptno
+```
+
+## 10.5 子查询
+
+括号内的查询叫做子查询，也叫内部查询，先于主查询执行 。
+
+子查询的结果被主查询（外部查询）使用。
+
+expr operator包括比较运算符：
+
+- 单行运算符：>、<、=、>=、<>、<=。
+- 多行运算符：IN、ANY、ALL。
+
+子查询可以嵌于以下SQL子句中：
+
+- FROM子句
+- WHERE子句
+- HAVING子句
+
+使用：
+
+- 子查询要用括号括起来。
+- 将子查询放在比较运算符的右边。
+- 对于单行子查询要使用单行运算符。
+- 对于多行子查询要使用多行运算符
+
+### 10.5.1 单行子查询
+
+子查询只返回一行一列。
+
+使用单行运算符。
+
+```
+SELECT ename,sal
+FROM emp
+WHERE sal=
+      (SELECT MAX(sal)
+      FROM emp)
+```
+
+### 10.5.2 多行子查询
+
+子查询返回记录的条数可以是一条或多条。
+
+和多行子查询进行比较时，需要使用多行操作符，多行操作符包括：IN、ANY和ALL。
+
+**IN**
+
+```
+SELECT deptno,ename,sal
+FROM emp
+WHERE sal IN
+      (SELECT sal
+      FROM emp
+      WHERE deptno=20)
+```
+
+**ANY**
+
+表示和子查询的任意一行结果进行比较，有一个满足条件即可。
+
+- `< ANY`：表示小于子查询结果集中的任意一个，即小于最大值就可以。
+- `>ANY`：表示大于子查询结果集中的任意一个，即大于最小值就可以。
+- `= ANY`：表示等于子查询结果中的任意一个，即等于谁都可以，相当于IN。
+
+```
+SELECT deptno,ename,sal
+FROM emp
+WHERE sal > ANY
+      (SELECT sal
+      FROM emp
+      WHERE deptno=20)
+AND deptno <> 10
+```
+
+**ALL**
+
+表示和子查询的所有行结果进行比较，每一行必须都满足条件。
+
+- `< ALL`：表示小于子查询结果集中的所有行，即小于最小值。
+- `> ALL`：表示大于子查询结果集中的所有行，即大于最大值。
+- `= ALL`：表示等于子查询结果集中的所有行，即等于所有值，通常无意义。
+
+```
+SELECT deptno,ename,sal
+FROM emp
+WHERE sal > ALL
+      (SELECT sal
+      FROM emp
+      WHERE deptno=30)
+AND deptno <> 10
+```
+
+### 10.5.3 多列子查询
+
+- 多列子查询可以在一个条件表达式内同时和子查询的多个列进行比较。
+- 多列子查询通常用IN操作符完成。
+- 如果子查询的结果中有一条空值，这条空值导致主查询没有记录返回。 
+
+```
+SELECT ename
+FROM emp
+WHERE empno NOT IN
+                (SELECT nvl(mgr,0)
+                FROM emp)
+```
+
+### 10.5.4 在FROM子句中使用子查询
+
+```
+SELECT a.ename,a.deptno,b.sa
+FROM emp a,(SELECT deptno,AVG(sal) sa
+            FROM emp
+            GROUP BY deptno) b
+WHERE a.deptno=b.deptno
+```
+
+### 10.5.5 ROWNUM
+
+- ROWNUM是一个伪列，伪列是使用上类似于表中的列，而实际并没有存储在表中的特殊列。
+
+- ROWNUM的功能是在每次查询时，返回结果集的顺序号，这个顺序号是在记录输出时才一步一步产生的，第一行 显示为1，第二行为2，以此类推。
+
+```
+SELECT ROWNUM,ename
+FROM emp
+```
+
+### 10.5.6 TOP-N查询
+
+Top-N查询主要是实现表中按照某个列排序，输出最大或最小的N条记录功能。 
+
+- ASC：查询最小的N条记录。
+- DESC：查询最大的N条记录。
+
+## 10.6 嵌套子查询
+
+### 10.6.1 嵌套子查询
+
+在通常的子查询中，子查询是以嵌套的方式写在父查询的WHERE、HAVING、FROM子句中，所以被 称为嵌套子查询。
+
+嵌套子查询的执行过程：
+
+- 子查询首先执行一次。
+- 用来自子查询的值确认或取消父查询的候选行。
+
+```
+SELECT ename,sal
+FROM emp e,(SELECT deptno,AVG(sal) sa
+            FROM emp
+            GROUP BY deptno) d
+WHERE e.deptno=d.deptno
+AND e.sal>d.sa
+```
+
+### 10.6.2 相关子查询
+
+父查询中的行每被处理一次，子查询就执行一次。
+
+```
+SELECT ename,sal
+FROM emp e
+WHERE sal>(SELECT AVG(sal)
+           FROM emp
+           WHERE deptno=e.deptno)
+```
+
+查询过程：
+
+- 取得父查询的候选行。
+- 用候选行被子查询引用列的值执行子查询。
+- 用来自子查询的值确认或取消候选行。
+- 重复步骤1、2、3，直到父查询中无剩余的候选行。
+
+### 10.6.3 EXISTS和NOT EXISTS
+
+- EXISTS判断是否“存在”，具体操作如下：
+  - 子查询中如果有记录找到，子查询语句不会继续执行， 返回值为TRUE。
+  - 子查询中如果到表的末尾也没有记录找到，返回值为 FALSE。
+- EXISTS子查询并没有确切记录返回，只判断是否有记录存在，而且只要找到相关记录，子查询就不需要再执行，然后再进行下面的操作。这样大大提高了语句的执行效率。
+- NOT EXISTS正好相反，判断子查询是否没有返回值。如果没有返回值，表达式为真，如果找到一条返回值，则为假。
+
+```
+SELECT ename
+FROM emp e
+WHERE EXISTS (SELECT '1'
+             FROM emp
+             WHERE mgr=e.empno)
+```
+
+注：
+
+- 在EXISTS子句中，并没有确切记录返回，只返回真或假。 所以’1’只是占位用，无实际意义。
+
+```
+SELECT ename
+FROM emp e
+WHERE NOT EXISTS (SELECT '1'
+             FROM emp
+             WHERE mgr=e.empno)
+```
+
+注：
+
+- NOT EXISTS操作符因为运算方法与NOT IN不同，只会返回TRUE或FALSE，不会返回空值，所以不需要考虑子查询去除值的问题。
 
 # 十一、Gradle
-
 
 
 # 十二、Kotlin
 
 
-
 # 十三、Python
-
 
 
 # 十四、UML
 
 
-
 # 十五、C
 
 
+# 十六、Markdown
 
-# 十六、推荐神器
+## 16.1 Markdown基础语法
 
+Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，广泛用来写博客。
 
+推荐编辑器：Typora、MarkdownPad、有道云笔记等
+线上编辑器：简书(https://www.jianshu.com)、Md2All(http://md.aclickall.com/)等
 
-## 16.1 LICEcap(录屏工具)
+### 16.1.1 标题
 
-下载地址：https://licecap.en.softonic.com/ ，下载并安装。
-使用步骤：
-1.打开，点击Record…，填写文件名，保存。
-2.然后LICEcap就会倒计时3秒后开始录制，点击Stop后保存。
+在文本前面加上`#`，如一级标题加一个，二级标题加两个，如：
 
-效果图：
-![20190117_LICEcap](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190117_LICEcap.gif)
+```
+# 一级标题
+## 二级标题
+### 三级标题
+#### 四级标题
+##### 五级标题
+###### 六级标题
+```
 
+### 16.1.2 列表
 
+有序列表直接在文字前面加`1.` `2.` `3.`，如：
 
-## 16.2 Pointofix(桌面画板工具)
+```
+1.有序列表
+2.有序列表
+```
 
-下载地址：http://www.pointofix.de/download.php ，下载并安装。
-不过安装好的Pointofix不是中文的，需要在官网下载语言翻译包。
+无序列表就在文字前面加`- `或`+ `，后面有一个空格，如：
 
-![20190117_PointofixLanguagePack](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190117_PointofixLanguagePack.PNG)
+```
+- 无序列表
+- 无序列表
+```
 
-语言翻译包的使用可以看上面图片最后的说明，解压并找到`pointofix_translation_zh-cn.ini`，重命名为`pointofix_translation.ini`，然后放到pointofix的安装目录下即可，重启就变成中文了。
+### 16.1.3 分割线
 
+三个或更多的`---` `-------`。
 
+### 16.1.4 引用
 
-## 16.3 Typora（Markdown编辑器）
+在文字前面加`>`，如：
 
-描述：Markdown编辑器，支持边输入边预览。
-官网：https://www.typora.io/ 。
+```
+> 引用
+```
 
-效果图：
+### 16.1.5 粗体
 
-![20190118_Typora](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190118_Typora.gif)
+在文字两端加`**`，如：
 
+```
+**粗体**
+```
 
+### 16.1.6 斜体
 
-## 16.4 HEditor（HTML/CSS/JavaScript在线编辑器）
+在文字两端加`*`，如：
 
-效果图：
+```
+*斜体*
+```
 
-![20190120_HEditor](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190120_HEditor.PNG)
+### 16.1.7 代码引用
 
+单行代码在代码左右加一个`，多行代码则在代码上下加上三个```，如：
 
+```
+`单行代码`
+```
 
-## 16.5 Kotlin在线编辑器
+```
+​```
+多行代码
+多行代码
+​```
+```
+### 16.1.8 图片
 
-描述：JetBrains官方的kotlin在线编辑器。
+`![]()`，[中括号中间写说明]，(小括号中间是图片链接)，如：
 
-使用：<https://try.kotlinlang.org/>
+```
+![image.png](https://upload-images.jianshu.io/upload_images/6025530-547fc28e5dc9365a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+```
 
-效果图：
+### 16.1.9 超链接
 
-![20190120_Kotlin](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190120_Kotlin.PNG)
+`[]()`，[中括号中间写索引]，(小括号中间是链接)，如：
 
+```
+[我的个人博客](https://lcfu1.github.io/MyNote)
+```
 
+### 16.1.10 表格
 
-## 16.6 shields
+如下：
 
-描述：Concise, consistent, and legible badges in SVG and raster format。
+```
+a |  b  | c
+--|-----|----
+1 |  1  | 1
+2 |  2  | 2
+3 |  3  | 3
+```
 
-项目的github地址：<https://github.com/badges/shields>
+或：
 
-使用：<https://shields.io/>
+```
+|a    |a    |a    |
+|:----|:---:|----:|
+|1    |1    |1    |
+|2    |2    |2    |
+|3    |3    |3    |
+```
 
-效果：
+### 16.1.11 特殊符号
 
-[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/lcfu1/MyNote)  [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/lcfu1/MyNote/blob/master/LICENSE)
+```
+&copy; & &uml; &trade; &iexcl; &pound; &amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo; 18&ordm;C  &quot;  &apos;
+```
 
+效果按顺序如下：
 
+&copy; & &uml; &trade; &iexcl; &pound; &amp; &lt; &gt; &yen; &euro; &reg; &plusmn; &para; &sect; &brvbar; &macr; &laquo; &middot; X&sup2; Y&sup3; &frac34; &frac14;  &times;  &divide;   &raquo; 18&ordm;C  &quot;  &apos;
 
 # 十七、网络通信
 
 
 # 十八、物联网安全
 
+
 # 十九、大数据
+
 
 # 二十、推荐网站
 
@@ -3122,7 +4139,67 @@ xmlns:xlink="http://www.w3.org/1999/xlink">
 - java 2 实用教程(第四版)
 - java编程思想
 
-# 二十二、推荐资源
+# 二十二、推荐神器
+
+## 22.1 LICEcap(录屏工具)
+
+下载地址：https://licecap.en.softonic.com/ ，下载并安装。
+使用步骤：
+1.打开，点击Record…，填写文件名，保存。
+2.然后LICEcap就会倒计时3秒后开始录制，点击Stop后保存。
+
+效果图：
+![20190117_LICEcap](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190117_LICEcap.gif)
+
+## 22.2 Pointofix(桌面画板工具)
+
+下载地址：http://www.pointofix.de/download.php ，下载并安装。
+不过安装好的Pointofix不是中文的，需要在官网下载语言翻译包。
+
+![20190117_PointofixLanguagePack](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190117_PointofixLanguagePack.PNG)
+
+语言翻译包的使用可以看上面图片最后的说明，解压并找到`pointofix_translation_zh-cn.ini`，重命名为`pointofix_translation.ini`，然后放到pointofix的安装目录下即可，重启就变成中文了。
+
+## 22.3 Typora（Markdown编辑器）
+
+描述：Markdown编辑器，支持边输入边预览。
+官网：https://www.typora.io/ 。
+
+效果图：
+
+![20190118_Typora](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190118_Typora.gif)
+
+## 22.4 HEditor（HTML/CSS/JavaScript在线编辑器）
+
+使用：https://lcfu1.github.io/MyNote/HEditor.html
+
+效果图：
+
+![20190120_HEditor](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190120_HEditor.PNG)
+
+## 22.5 Kotlin在线编辑器
+
+描述：JetBrains官方的kotlin在线编辑器。
+
+使用：<https://try.kotlinlang.org/>
+
+效果图：
+
+![20190120_Kotlin](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/tool/20190120_Kotlin.PNG)
+
+## 22.6 shields
+
+描述：Concise, consistent, and legible badges in SVG and raster format。
+
+项目的github地址：<https://github.com/badges/shields>
+
+使用：<https://shields.io/>
+
+效果：
+
+[![GitHub stars](https://img.shields.io/github/stars/badges/shields.svg?style=social&label=Stars)](https://github.com/lcfu1/MyNote)  [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg)](https://github.com/lcfu1/MyNote/blob/master/LICENSE)
+
+# 二十三、推荐资源
 
 - https://github.com/open-android/Android
 - https://www.jianshu.com/p/9618c038135f
