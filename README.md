@@ -2017,7 +2017,7 @@ inputStream.close();
 
 **Android模式的项目结构：**
 
-![20190130_androidstudio_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_2PNG)
+![20190130_androidstudio_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190130_androidstudio_2.PNG)
 
 **Project模式的项目结构：**
 
@@ -4045,12 +4045,6 @@ Markdown是一种可以使用普通文本编辑器编写的标记语言，通过
 `单行代码`
 ```
 
-```
-​```
-多行代码
-多行代码
-​```
-```
 ### 16.1.8 图片
 
 `![]()`，[中括号中间写说明]，(小括号中间是图片链接)，如：
