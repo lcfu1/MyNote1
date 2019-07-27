@@ -302,7 +302,7 @@ public class MainActivity extends AppCompatActivity {
 
 4、效果如下：
 
-![20190129_bottom_navigation_1](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_bottom_navigation_1.PNG)
+![20190129_bottom_navigation_1](/img/android/20190129_bottom_navigation_1.PNG)
 
 ![20190129_bottom_navigation_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_bottom_navigation_2.PNG)
 
