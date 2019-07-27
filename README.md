@@ -302,9 +302,9 @@ public class MainActivity extends AppCompatActivity {
 
 4、效果如下：
 
-![20190129_bottom_navigation_1](/img/android/20190129_bottom_navigation_1.PNG)
+![20190129_bottom_navigation_1](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_bottom_navigation_1.PNG)
 
-![20190129_bottom_navigation_2](https://raw.githubusercontent.com/lcfu1/MyNote/master/img/android/20190129_bottom_navigation_2.PNG)
+![20190129_bottom_navigation_2](img/android/20190129_bottom_navigation_2.PNG)
 
 如果只有三个动作，则始终显示图标和文本标签 如果有四个或五个操作，则仅将非活动视图显示为图标。
 
